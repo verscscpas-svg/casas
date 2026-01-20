@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industries Served</title>
+
+    <style>
+      body {
+        font-family: "Poppins", Arial, sans-serif;
+        background: #f4f6f9;
+        padding: 20px;
+      }
+
+      .table-container {
+        overflow-x: auto;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 900px;
+      }
+
+      thead {
+        background: #2f4b75;
+        color: #fff;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        vertical-align: top;
+        border: 1px solid #e0e0e0;
+        font-size: 14px;
+      }
+
+      th {
+        text-align: center;
+        font-weight: 600;
+      }
+
+      td ul {
+        padding-left: 18px;
+        margin: 0;
+      }
+
+      td ul li {
+        list-style: "✓  ";
+        margin-bottom: 6px;
+      }
+
+      .industry {
+        font-weight: 600;
+        background: #f0f0f0;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        table {
+          min-width: 100%;
+        }
+
+        thead {
+          display: none;
+        }
+
+        tr {
+          display: block;
+          margin-bottom: 20px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          overflow: hidden;
+        }
+
+        td {
+          display: block;
+          border: none;
+          border-bottom: 1px solid #eee;
+        }
+
+        td::before {
+          content: attr(data-label);
+          font-weight: 600;
+          display: block;
+          margin-bottom: 5px;
+          color: #2f4b75;
+        }
+
+        .industry {
+          background: #e9eef6;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- SECTION TITLE -->
+
+    <div class="table-container">
+      <h2 class="clients">Industries Served</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>INDUSTRY</th>
+            <th>NCR</th>
+            <th>LUZON</th>
+            <th>VISAYAS</th>
+            <th>MINDANAO</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- SERVICES -->
+          <tr>
+            <td class="industry" data-label="Industry">Services</td>
+            <td data-label="NCR">
+              <ul>
+                <li>Chroma Hospitality, Inc. (1)</li>
+                <li>Cyber Security (1)</li>
+                <li>Business Process Outsourcing (1)</li>
+                <li>Property Management (3)</li>
+                <li>Consultancy (2)</li>
+                <li>Digital Technology (2)</li>
+                <li>Educational Research Tools and Training (2)</li>
+                <li>University (3)</li>
+              </ul>
+            </td>
+            <td data-label="Luzon">
+              <ul>
+                <li>Chroma Hospitality, Inc. (3)</li>
+                <li>University (4)</li>
+              </ul>
+            </td>
+            <td data-label="Visayas">
+              <ul>
+                <li>Chroma Hospitality, Inc. (3)</li>
+              </ul>
+            </td>
+            <td data-label="Mindanao">—</td>
+          </tr>
+
+          <!-- TRADING -->
+          <tr>
+            <td class="industry" data-label="Industry">
+              Trading and Distribution
+            </td>
+            <td data-label="NCR">
+              <ul>
+                <li>Petroleum Products (1)</li>
+                <li>
+                  Upholstery Materials, Hardware Items, Furniture, etc. (1)
+                </li>
+                <li>Pharmaceutical Products (2)</li>
+                <li>Health Supplements (1)</li>
+              </ul>
+            </td>
+            <td data-label="Luzon">—</td>
+            <td data-label="Visayas">—</td>
+            <td data-label="Mindanao">—</td>
+          </tr>
+
+          <!-- MANUFACTURING -->
+          <tr>
+            <td class="industry" data-label="Industry">Manufacturing</td>
+            <td data-label="NCR">
+              <ul>
+                <li>
+                  Business Forms, Security Printing, Biodegradable Food Wraps
+                  (1)
+                </li>
+                <li>Aluminum Roll-On Pilfer-Proof (ROPP) Bottle Caps (1)</li>
+                <li>Machineries, Plants & Advanced Process Technology (3)</li>
+              </ul>
+            </td>
+            <td data-label="Luzon">
+              <ul>
+                <li>Electronics and Communication Application (1)</li>
+              </ul>
+            </td>
+            <td data-label="Visayas">—</td>
+            <td data-label="Mindanao">
+              <ul>
+                <li>
+                  Disinfectants, Dishwashing Liquid, Powder & Liquid Detergent,
+                  Fabric Conditioner, Cologne, Hand Soap & Alcohol (1)
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 
+SUGGESTIONS (HTML FORMAT)
+
+1. Consider adding a short intro paragraph above this table:
+   <p>We serve clients across multiple industries nationwide.</p>
+
+2. You may add icons per industry using Font Awesome:
+   <i class="fa fa-industry"></i>
+
+3. If table becomes too long:
+   - Split per industry into tabs
+   - Or convert each industry into cards on mobile
+
+4. For accounting firms:
+   Keep animations subtle (fade-up only if needed)
+
+-->
+  </body>
+</html>

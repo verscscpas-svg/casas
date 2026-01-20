@@ -1,0 +1,149 @@
+.withlogo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.imgnav {
+  height: 50px;
+}
+.blk {
+  color: black;
+}
+.sml {
+  font-size: 15px;
+}
+
+.flow-wrap .text h2 {
+  font-size: small; /* change this to whatever size you want */
+  font-weight: 600; /* adjust weight if needed */
+  color: #333; /* change text color */
+  line-height: 1.2; /* adjust spacing between lines */
+  margin: 0; /* remove default margin if needed */
+}
+/* html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(120deg, #294169, #2357ab, #4281e7, #f1f1f1);
+
+  background-size: 500% 500%;
+  animation: waveGradient 16s ease-in-out infinite;
+
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: #fff;
+}
+
+ 
+@keyframes waveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 60%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 40%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+.row {
+  cursor: default;
+}
+.table-container {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+thead {
+  background: #2f4b75;
+  color: #fff;
+}
+
+th,
+td {
+  padding: 15px;
+  vertical-align: top;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+th {
+  text-align: center;
+  font-weight: 600;
+}
+
+td ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+td ul li {
+  list-style: "✓  ";
+  margin-bottom: 6px;
+}
+
+.industry {
+  font-weight: 600;
+  background: #f0f0f0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  table {
+    min-width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  td {
+    display: block;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    color: #2f4b75;
+  }
+
+  .industry {
+    background: #e9eef6;
+  }
+}
+.clients {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
