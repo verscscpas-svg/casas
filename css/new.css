@@ -6,7 +6,7 @@
 .imgnav {
   height: 50px;
 }
-.blk {
+.blks {
   color: black;
 }
 .sml {
@@ -20,43 +20,7 @@
   line-height: 1.2; /* adjust spacing between lines */
   margin: 0; /* remove default margin if needed */
 }
-/* html,
-body {
-  height: 100%;
-  margin: 0;
-}
 
-body {
-  font-family: "Poppins", Arial, sans-serif;
-  background: linear-gradient(120deg, #294169, #2357ab, #4281e7, #f1f1f1);
-
-  background-size: 500% 500%;
-  animation: waveGradient 16s ease-in-out infinite;
-
-  font-size: 16px;
-  line-height: 1.8;
-  font-weight: 400;
-  color: #fff;
-}
-
- 
-@keyframes waveGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 50% 60%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 50% 40%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-} */
 .row {
   cursor: default;
 }
@@ -146,4 +110,26 @@ td ul li {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .ftco-navbar-light .navbar-toggler {
+    font-size: larger;
+  }
+}
+@media (max-width: 1024px) {
+  .staff .text .position {
+    font-size: small;
+  }
+  #maam {
+    font-size: 19px;
+  }
+  #aliyah {
+    font-size: larger;
+    padding-bottom: 30px;
+  }
+  #hometo {
+    font-size: 600px;
+  }
+}
+@media (min-width: 853px) {
 }

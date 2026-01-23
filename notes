@@ -2,5 +2,5 @@ github
 git init
 git add .
 git commit -m "newfile"
-git push [https://github.com/verscscpas-svg/casas](https://github.com/verscscpas-svg/casas)
+git push https://github.com/verscscpas-svg/casas
 [text](https://github.com/verscscpas-svg/casas)
