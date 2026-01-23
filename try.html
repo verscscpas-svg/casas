@@ -1,216 +1,169 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Industries Served</title>
+    <title>Audit & Assurance</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <style>
       body {
-        font-family: "Poppins", Arial, sans-serif;
-        background: #f4f6f9;
-        padding: 20px;
-      }
-
-      .table-container {
-        overflow-x: auto;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        min-width: 900px;
-      }
-
-      thead {
-        background: #2f4b75;
-        color: #fff;
-      }
-
-      th,
-      td {
-        padding: 15px;
-        vertical-align: top;
-        border: 1px solid #e0e0e0;
-        font-size: 14px;
-      }
-
-      th {
-        text-align: center;
-        font-weight: 600;
-      }
-
-      td ul {
-        padding-left: 18px;
         margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
 
-      td ul li {
-        list-style: "✓  ";
-        margin-bottom: 6px;
+      .wrapper {
+        display: flex;
+        width: 100%;
+        max-width: 800px;
+        gap: 15px;
+        /* Ensures the logo box height always matches the content box height */
+        align-items: stretch;
+        transition: all 0.5s ease;
       }
 
-      .industry {
-        font-weight: 600;
-        background: #f0f0f0;
+      /* Logo Section */
+      .logo {
+        flex: 0 0 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(151, 212, 224, 0.19);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8.9px);
+        -webkit-backdrop-filter: blur(8.9px);
+        border: 1px solid rgba(151, 212, 224, 0.73);
       }
 
-      /* Mobile Responsive */
-      @media (max-width: 768px) {
-        table {
-          min-width: 100%;
-        }
+      .icon {
+        /* Responsive Icon Size */
+        font-size: calc(40px + 2vw);
+        color: #2c3e50;
+        transition: transform 0.5s ease;
+      }
 
-        thead {
-          display: none;
-        }
+      /* Content Section */
+      .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        /* MAGIC PART: Centers the title vertically when explanation is hidden */
+        justify-content: center;
+        transition: justify-content 0.5s ease;
+      }
 
-        tr {
-          display: block;
-          margin-bottom: 20px;
-          border: 1px solid #ddd;
-          border-radius: 6px;
-          overflow: hidden;
-        }
+      /* Title Box */
+      .title {
+        padding: 20px;
+        cursor: pointer;
+        background: rgba(151, 212, 224, 0.19);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8.9px);
+        -webkit-backdrop-filter: blur(8.9px);
+        border: 1px solid rgba(151, 212, 224, 0.73);
+        font-weight: bold;
+        text-align: center;
+        font-size: calc(14px + 0.5vw);
+        text-transform: uppercase;
+        user-select: none;
+        transition: all 0.4s ease;
+      }
 
-        td {
-          display: block;
-          border: none;
-          border-bottom: 1px solid #eee;
-        }
+      .title:hover {
+        background: rgba(151, 212, 224, 0.35);
+      }
 
-        td::before {
-          content: attr(data-label);
-          font-weight: 600;
-          display: block;
-          margin-bottom: 5px;
-          color: #2f4b75;
-        }
+      /* Explanation Box */
+      .explanation {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        text-align: center;
+        font-size: calc(12px + 0.4vw);
+        line-height: 1.6;
+        background: rgba(151, 212, 224, 0.19);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8.9px);
+        -webkit-backdrop-filter: blur(8.9px);
+        border: 1px solid rgba(151, 212, 224, 0);
+        transition:
+          max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.4s ease,
+          padding 0.5s ease,
+          margin 0.5s ease;
+      }
 
-        .industry {
-          background: #e9eef6;
+      /* Active States */
+      .wrapper.active .content {
+        /* Shifts content to the top when active */
+        justify-content: flex-start;
+      }
+
+      .wrapper.active .explanation {
+        max-height: 500px;
+        opacity: 1;
+        padding: 20px;
+        border: 1px solid rgba(151, 212, 224, 0.73);
+        margin-top: 5px;
+      }
+
+      .wrapper.active .icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 480px) {
+        .logo {
+          flex: 0 0 85px;
+        }
+        .icon {
+          font-size: 35px;
+        }
+        .wrapper {
+          gap: 10px;
+          margin: 10px;
         }
       }
     </style>
   </head>
-
   <body>
-    <!-- SECTION TITLE -->
-
-    <div class="table-container">
-      <h2 class="clients">Industries Served</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>INDUSTRY</th>
-            <th>NCR</th>
-            <th>LUZON</th>
-            <th>VISAYAS</th>
-            <th>MINDANAO</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <!-- SERVICES -->
-          <tr>
-            <td class="industry" data-label="Industry">Services</td>
-            <td data-label="NCR">
-              <ul>
-                <li>Chroma Hospitality, Inc. (1)</li>
-                <li>Cyber Security (1)</li>
-                <li>Business Process Outsourcing (1)</li>
-                <li>Property Management (3)</li>
-                <li>Consultancy (2)</li>
-                <li>Digital Technology (2)</li>
-                <li>Educational Research Tools and Training (2)</li>
-                <li>University (3)</li>
-              </ul>
-            </td>
-            <td data-label="Luzon">
-              <ul>
-                <li>Chroma Hospitality, Inc. (3)</li>
-                <li>University (4)</li>
-              </ul>
-            </td>
-            <td data-label="Visayas">
-              <ul>
-                <li>Chroma Hospitality, Inc. (3)</li>
-              </ul>
-            </td>
-            <td data-label="Mindanao">—</td>
-          </tr>
-
-          <!-- TRADING -->
-          <tr>
-            <td class="industry" data-label="Industry">
-              Trading and Distribution
-            </td>
-            <td data-label="NCR">
-              <ul>
-                <li>Petroleum Products (1)</li>
-                <li>
-                  Upholstery Materials, Hardware Items, Furniture, etc. (1)
-                </li>
-                <li>Pharmaceutical Products (2)</li>
-                <li>Health Supplements (1)</li>
-              </ul>
-            </td>
-            <td data-label="Luzon">—</td>
-            <td data-label="Visayas">—</td>
-            <td data-label="Mindanao">—</td>
-          </tr>
-
-          <!-- MANUFACTURING -->
-          <tr>
-            <td class="industry" data-label="Industry">Manufacturing</td>
-            <td data-label="NCR">
-              <ul>
-                <li>
-                  Business Forms, Security Printing, Biodegradable Food Wraps
-                  (1)
-                </li>
-                <li>Aluminum Roll-On Pilfer-Proof (ROPP) Bottle Caps (1)</li>
-                <li>Machineries, Plants & Advanced Process Technology (3)</li>
-              </ul>
-            </td>
-            <td data-label="Luzon">
-              <ul>
-                <li>Electronics and Communication Application (1)</li>
-              </ul>
-            </td>
-            <td data-label="Visayas">—</td>
-            <td data-label="Mindanao">
-              <ul>
-                <li>
-                  Disinfectants, Dishwashing Liquid, Powder & Liquid Detergent,
-                  Fabric Conditioner, Cologne, Hand Soap & Alcohol (1)
-                </li>
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="wrapper" id="mainWrapper">
+      <div class="logo">
+        <div class="icon">
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+        </div>
+      </div>
+      <div class="content">
+        <div class="title" onclick="toggleAccordion()">Audit & Assurance</div>
+        <div class="explanation">
+          Our approach to Audit & Assurance is focused on providing
+          high-quality, independent reports that enhance the reliability of
+          information. By integrating the title and logo, we ensure a
+          professional and responsive experience across all devices.
+        </div>
+      </div>
     </div>
 
-    <!-- 
-SUGGESTIONS (HTML FORMAT)
-
-1. Consider adding a short intro paragraph above this table:
-   <p>We serve clients across multiple industries nationwide.</p>
-
-2. You may add icons per industry using Font Awesome:
-   <i class="fa fa-industry"></i>
-
-3. If table becomes too long:
-   - Split per industry into tabs
-   - Or convert each industry into cards on mobile
-
-4. For accounting firms:
-   Keep animations subtle (fade-up only if needed)
-
--->
+    <script>
+      function toggleAccordion() {
+        const wrapper = document.getElementById("mainWrapper");
+        wrapper.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>

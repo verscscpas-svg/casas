@@ -1,0 +1,192 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  gap: 15px;
+  /* Ensures the logo box height always matches the content box height */
+  align-items: stretch;
+  transition: all 0.5s ease;
+  margin: 30px;
+}
+
+/* Logo Section */
+.logo {
+  flex: 0 0 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #294169;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(255, 254, 254, 0.1);
+  backdrop-filter: blur(8.9px);
+  -webkit-backdrop-filter: blur(8.9px);
+  border: 1px solid rgba(151, 212, 224, 0.73);
+}
+
+.icon {
+  /* Responsive Icon Size */
+  font-size: calc(40px + 2vw);
+  color: #fff;
+  transition: transform 0.5s ease;
+}
+
+/* Content Section */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* MAGIC PART: Centers the title vertically when explanation is hidden */
+  justify-content: center;
+  transition: justify-content 0.5s ease;
+}
+
+/* Title Box */
+.title {
+  padding: 20px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.9px);
+  -webkit-backdrop-filter: blur(8.9px);
+  border: 1px solid rgba(151, 212, 224, 0.73);
+  font-weight: bold;
+  text-align: center;
+  font-size: calc(14px + 0.5vw);
+  text-transform: uppercase;
+  user-select: none;
+  transition: all 0.4s ease;
+  color: #294169;
+}
+
+.title:hover {
+  background: rgba(151, 212, 224, 0.35);
+}
+
+/* Explanation Box */
+.explanation {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  text-align: center;
+  font-size: calc(12px + 0.4vw);
+  line-height: 1.6;
+  background: #294169;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.9px);
+  -webkit-backdrop-filter: blur(8.9px);
+  border: 1px solid rgba(151, 212, 224, 0);
+  transition:
+    max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s ease,
+    padding 0.5s ease,
+    margin 0.5s ease;
+  color: #fff;
+}
+
+/* Active States */
+.wrapper.active .content {
+  /* Shifts content to the top when active */
+  justify-content: flex-start;
+}
+
+.wrapper.active .explanation {
+  max-height: 500px;
+  opacity: 1;
+  padding: 20px;
+  border: 1px solid rgba(151, 212, 224, 0.73);
+  margin-top: 5px;
+}
+
+.wrapper.active .icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  .logo {
+    flex: 0 0 85px;
+  }
+  .icon {
+    font-size: 35px;
+  }
+  .wrapper {
+    gap: 10px;
+    margin: 10px;
+  }
+}
+
+/* try lang  */
+
+/* Scroll Slide-in Animations */
+.wrapper {
+  opacity: 0;
+  transform: translateX(-50px); /* default start left */
+  transition: all 0.8s ease-out;
+}
+
+/* Even wrappers slide from right */
+.wrapper:nth-child(even) {
+  transform: translateX(50px);
+}
+
+/* When scrolled into view */
+.wrapper.scroll-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* h2  */
+.heading-section {
+  /* From https://css.glass */
+  background: #294169;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.6px);
+  -webkit-backdrop-filter: blur(9.6px);
+  border: 1px solid rgba(41, 65, 105, 0.45); /* example gradient, can change */
+  color: white;
+  padding: 40px 20px; /* top/bottom and side padding */
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-width: 100%; /* stretch to full width of container */
+  margin: 0 auto 30px auto; /* center horizontally and spacing below */
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.heading-section h2 {
+  margin: 0;
+  font-size: calc(24px + 1vw); /* responsive font */
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heading-section {
+    padding: 30px 15px;
+  }
+
+  .heading-section h2 {
+    font-size: calc(20px + 2vw);
+  }
+}
+
+@media (max-width: 480px) {
+  .heading-section {
+    padding: 20px 10px;
+  }
+
+  .heading-section h2 {
+    font-size: calc(18px + 2vw);
+  }
+}
+.mb-4 {
+  color: #fff;
+}
+.wrapper {
+  display: flex;
+}
