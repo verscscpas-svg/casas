@@ -2418,7 +2418,7 @@ h5,
   bottom: 60px;
   left: 0;
   right: 0;
-  z-index: 99;
+  z-index: 1;
 }
 @media (max-width: 767.98px) {
   .slider-hero .tns-nav {
