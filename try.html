@@ -3,167 +3,247 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Audit & Assurance</title>
+    <title>Management Team</title>
 
+    <!-- AOS CSS CDN -->
     <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
 
     <style>
-      body {
+      * {
+        box-sizing: border-box;
         margin: 0;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding: 0;
       }
 
-      .wrapper {
-        display: flex;
-        width: 100%;
+      body {
+        font-family: Arial, sans-serif;
+        background: #8c8c8c;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .row {
+        display: grid;
+        gap: 40px;
+        justify-content: center;
+        padding-top: 65px;
+        margin-bottom: 60px;
+      }
+
+      .row-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .row-2 {
+        grid-template-columns: repeat(2, 1fr);
         max-width: 800px;
-        gap: 15px;
-        /* Ensures the logo box height always matches the content box height */
-        align-items: stretch;
-        transition: all 0.5s ease;
+        margin: auto;
       }
 
-      /* Logo Section */
-      .logo {
-        flex: 0 0 120px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: rgba(151, 212, 224, 0.19);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(8.9px);
-        -webkit-backdrop-filter: blur(8.9px);
-        border: 1px solid rgba(151, 212, 224, 0.73);
+      .row-4 {
+        grid-template-columns: repeat(4, 1fr);
       }
 
-      .icon {
-        /* Responsive Icon Size */
-        font-size: calc(40px + 2vw);
-        color: #2c3e50;
+      .profile-card {
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 80px 20px 30px;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         transition: transform 0.5s ease;
       }
 
-      /* Content Section */
-      .content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        /* MAGIC PART: Centers the title vertically when explanation is hidden */
-        justify-content: center;
-        transition: justify-content 0.5s ease;
+      .profile-card img {
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 8px solid #ffffff;
+        position: absolute;
+        top: -65px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
       }
 
-      /* Title Box */
-      .title {
-        padding: 20px;
-        cursor: pointer;
-        background: rgba(151, 212, 224, 0.19);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(8.9px);
-        -webkit-backdrop-filter: blur(8.9px);
-        border: 1px solid rgba(151, 212, 224, 0.73);
+      .profile-card h3 {
+        margin: 10px 0 6px;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .profile-card p {
+        margin: 0;
+        font-size: 13px;
         font-weight: bold;
-        text-align: center;
-        font-size: calc(14px + 0.5vw);
-        text-transform: uppercase;
-        user-select: none;
-        transition: all 0.4s ease;
+        color: #4281e7;
+        letter-spacing: 1px;
       }
 
-      .title:hover {
-        background: rgba(151, 212, 224, 0.35);
+      .profile-card:hover {
+        transform: translateY(-10px);
       }
 
-      /* Explanation Box */
-      .explanation {
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        padding: 0 20px;
-        text-align: center;
-        font-size: calc(12px + 0.4vw);
-        line-height: 1.6;
-        background: rgba(151, 212, 224, 0.19);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(8.9px);
-        -webkit-backdrop-filter: blur(8.9px);
-        border: 1px solid rgba(151, 212, 224, 0);
-        transition:
-          max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-          opacity 0.4s ease,
-          padding 0.5s ease,
-          margin 0.5s ease;
-      }
-
-      /* Active States */
-      .wrapper.active .content {
-        /* Shifts content to the top when active */
-        justify-content: flex-start;
-      }
-
-      .wrapper.active .explanation {
-        max-height: 500px;
-        opacity: 1;
-        padding: 20px;
-        border: 1px solid rgba(151, 212, 224, 0.73);
-        margin-top: 5px;
-      }
-
-      .wrapper.active .icon {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      /* Mobile Adjustments */
-      @media (max-width: 480px) {
-        .logo {
-          flex: 0 0 85px;
+      @media (max-width: 1024px) {
+        .row-4 {
+          grid-template-columns: repeat(2, 1fr);
+          max-width: 600px;
+          margin: auto;
         }
-        .icon {
-          font-size: 35px;
+        .row-3 {
+          grid-template-columns: repeat(2, 1fr);
+          max-width: 800px;
+          margin: auto;
         }
-        .wrapper {
-          gap: 10px;
-          margin: 10px;
+        .row-2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .row-4,
+        .row-3,
+        .row-2 {
+          grid-template-columns: 1fr;
+          padding-top: 65px;
+          margin-bottom: 40px;
+        }
+
+        .profile-card {
+          margin-bottom: 20px;
+        }
+
+        .profile-card:last-child {
+          margin-bottom: 0;
         }
       }
     </style>
   </head>
+
   <body>
-    <div class="wrapper" id="mainWrapper">
-      <div class="logo">
-        <div class="icon">
-          <i class="fa-solid fa-file-invoice-dollar"></i>
+    <div class="container">
+      <!-- ROW 1 -->
+      <br />
+      <div class="row row-3">
+        <div
+          class="profile-card"
+          data-aos="flip-right"
+          data-aos-delay="100"
+          data-aos-duration="1000"
+        >
+          <img src="profile.jpg" alt="" />
+          <h3>Almelito Casas</h3>
+          <p>MANAGING PARTNER</p>
+        </div>
+
+        <div
+          class="profile-card"
+          data-aos="flip-right"
+          data-aos-delay="200"
+          data-aos-duration="1000"
+        >
+          <img src="profile.jpg" alt="" />
+          <h3>Juan Dela Cruz</h3>
+          <p>OPERATIONS HEAD</p>
+        </div>
+
+        <div
+          class="profile-card"
+          data-aos="flip-right"
+          data-aos-delay="300"
+          data-aos-duration="1000"
+        >
+          <img src="profile.jpg" alt="" />
+          <h3>Maria Santos</h3>
+          <p>FINANCE DIRECTOR</p>
         </div>
       </div>
-      <div class="content">
-        <div class="title" onclick="toggleAccordion()">Audit & Assurance</div>
-        <div class="explanation">
-          Our approach to Audit & Assurance is focused on providing
-          high-quality, independent reports that enhance the reliability of
-          information. By integrating the title and logo, we ensure a
-          professional and responsive experience across all devices.
+      <br /><br /><br />
+      <!-- ROW 2 -->
+      <div class="row row-2">
+        <div
+          class="profile-card"
+          data-aos="flip-right"
+          data-aos-delay="100"
+          data-aos-duration="1000"
+        >
+          <img src="profile.jpg" alt="" />
+          <h3>Pedro Reyes</h3>
+          <p>HR MANAGER</p>
+        </div>
+
+        <div
+          class="profile-card"
+          data-aos="flip-right"
+          data-aos-delay="200"
+          data-aos-duration="1000"
+        >
+          <img src="profile.jpg" alt="" />
+          <h3>Ana Lim</h3>
+          <p>LEGAL ADVISER</p>
+        </div>
+      </div>
+      <br /><br /><br /><br />
+      <!-- ROW 3 -->
+      <div class="row row-4">
+        <div
+          class="profile-card"
+          data-aos="flip-right"
+          data-aos-delay="100"
+          data-aos-duration="1000"
+        >
+          <img src="profile.jpg" alt="" />
+          <h3>Employee 1</h3>
+          <p>STAFF</p>
+        </div>
+
+        <div
+          class="profile-card"
+          data-aos="flip-right"
+          data-aos-delay="200"
+          data-aos-duration="1000"
+        >
+          <img src="profile.jpg" alt="" />
+          <h3>Employee 2</h3>
+          <p>STAFF</p>
+        </div>
+
+        <div
+          class="profile-card"
+          data-aos="flip-right"
+          data-aos-delay="300"
+          data-aos-duration="1000"
+        >
+          <img src="profile.jpg" alt="" />
+          <h3>Employee 3</h3>
+          <p>STAFF</p>
+        </div>
+
+        <div
+          class="profile-card"
+          data-aos="flip-right"
+          data-aos-delay="400"
+          data-aos-duration="1000"
+        >
+          <img src="profile.jpg" alt="" />
+          <h3>Employee 4</h3>
+          <p>STAFF</p>
         </div>
       </div>
     </div>
 
+    <!-- AOS JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-      function toggleAccordion() {
-        const wrapper = document.getElementById("mainWrapper");
-        wrapper.classList.toggle("active");
-      }
+      AOS.init();
     </script>
   </body>
 </html>
