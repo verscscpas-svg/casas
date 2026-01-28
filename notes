@@ -19,3 +19,12 @@ git push https://github.com/verscscpas-svg/casas
 @media (max-width: 1199.98px) {
 /_ Styles for desktops and large screens _/
 }
+
+
+echo "# project" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/verscscpas-svg/project.git
+git push -u origin main
