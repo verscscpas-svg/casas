@@ -36,5 +36,5 @@ git add .
 git commit -am "anyname"
 https://github.com/verscscpas-svg/project
 
-git remote add origin https://github.com/verscscpas-svg/project
+git remote add origin https://github.com/verscscpas-svg/project.git
 git push  origin master
