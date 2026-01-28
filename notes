@@ -27,6 +27,7 @@ git add README.md
 git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/verscscpas-svg/project.git
+<<<<<<< HEAD
 git push -u origin main
 
 
@@ -38,3 +39,6 @@ https://github.com/verscscpas-svg/project
 
 git remote add origin https://github.com/verscscpas-svg/project.git
 git push  origin master
+=======
+git push -u origin main
+>>>>>>> 07e635fb345f6e810185f6238a9f35f9e489243b
