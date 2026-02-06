@@ -550,6 +550,11 @@ progress {
   padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 .col {
   -webkit-box-flex: 1;
@@ -2558,7 +2563,7 @@ h5,
   background-image: url("../imagess/cscover/serv.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; /* makes sure it fills the container nicely */
+  background-size: cover;
 }
 
 .bg-darken {

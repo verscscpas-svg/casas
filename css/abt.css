@@ -19,3 +19,70 @@
   clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%); /* slanted right side */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+.container-vision {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 5%;
+}
+
+.container-vision .vision {
+  background-color: #294169;
+  color: #294169;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 8px; /* optional */
+  width: 60%;
+  /* From https://css.glass */
+  background: rgba(41, 65, 105, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.1px);
+  -webkit-backdrop-filter: blur(1.1px);
+  text-transform: uppercase;
+}
+.container-mission {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 10%;
+}
+
+.container-mission .mission {
+  background-color: #294169;
+  color: #294169;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 8px; /* optional */
+  width: 60%;
+  /* From https://css.glass */
+  background: rgba(41, 65, 105, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.1px);
+  -webkit-backdrop-filter: blur(1.1px);
+  text-transform: uppercase;
+}
+.aboutthem {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 10%;
+}
+
+.aboutthem .meaning {
+  background-color: #294169;
+  color: #294169;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 8px; /* optional */
+  width: 100%;
+  /* From https://css.glass */
+  background: rgba(41, 65, 105, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.1px);
+  -webkit-backdrop-filter: blur(1.1px);
+  text-transform: uppercase;
+}
