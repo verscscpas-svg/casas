@@ -142,20 +142,44 @@
 /* h2  */
 .heading-section {
   /* From https://css.glass */
-  background: #294169;
-  border-radius: 16px;
+  /* background: #294169; */
+  /* border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(9.6px);
   -webkit-backdrop-filter: blur(9.6px);
-  border: 1px solid rgba(41, 65, 105, 0.45); /* example gradient, can change */
+  border: 1px solid rgba(41, 65, 105, 0.45);
   color: white;
-  padding: 40px 20px; /* top/bottom and side padding */
-  border-radius: 16px;
+  padding: 40px 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  max-width: 100%; /* stretch to full width of container */
-  margin: 0 auto 30px auto; /* center horizontally and spacing below */
-  text-align: center;
-  transition: all 0.4s ease;
+  margin: 0 auto 30px auto;
+
+  transition: all 0.4s ease; */
+  align-items: center;
+}
+
+.rows {
+  display: -webkit-box;
+  display: -ms-flexbox;
+
+  flex-wrap: wrap;
+}
+.rows > * {
+  width: 100%;
+  max-width: 50%;
+}
+/* Add a subtle horizontal line under the text */
+
+/* Animation */
+@keyframes rainbowMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .heading-section h2 {
@@ -189,4 +213,9 @@
 }
 .wrapper {
   display: flex;
+}
+
+/* TEXT  */
+.lower-shadow {
+  text-shadow: 0 6px 10px rgba(255, 255, 255, 0.45);
 }

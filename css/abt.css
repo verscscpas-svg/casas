@@ -1,0 +1,21 @@
+.lower-shadow {
+  text-shadow: 0 6px 10px rgba(255, 255, 255, 0.45);
+  color: white;
+}
+.heading-section {
+  position: relative;
+  display: inline-block; /* Shrinks to fit content */
+  padding: 40px 60px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    #294169,
+    #2575fc
+  ); /* gradient background */
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%); /* slanted right side */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}

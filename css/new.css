@@ -242,31 +242,3 @@ td ul li {
  } */
 
 /* carousel bg  */
-/* Base styles */
-.img {
-  width: 100%;
-  min-height: 100vh; /* full screen height */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover; /* makes image responsive */
-}
-
-/* Optional: if js-fullheight is meant to force height */
-.js-fullheight {
-  height: 100vh;
-}
-
-/* Tablet */
-@media (max-width: 991px) {
-  .img {
-    min-height: 70vh; /* reduce height on tablets */
-  }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .img {
-    min-height: 50vh; /* smaller height for phones */
-    background-position: center top; /* better crop for mobile */
-  }
-}

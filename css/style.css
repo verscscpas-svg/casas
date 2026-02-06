@@ -431,6 +431,7 @@ progress {
   margin-top: calc(var(--bs-gutter-y) * -1);
   margin-right: calc(var(--bs-gutter-x) / -2);
   margin-left: calc(var(--bs-gutter-x) / -2);
+  justify-content: center;
 }
 .row > * {
   -ms-flex-negative: 0;
@@ -2386,8 +2387,9 @@ h5,
 .slider-hero .work .text .h1 {
   font-weight: 400;
   color: #fff;
-  font-size: 60px;
+  font-size: 50px;
   line-height: 1.2;
+  margin-top: -40px;
 }
 .slider-hero .work .text h1 span,
 .slider-hero .work .text .h1 span {
