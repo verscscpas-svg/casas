@@ -74,6 +74,7 @@
 .aboutthem .meaning {
   background-color: #294169;
   color: #294169;
+  font-size: xx-large;
   padding: 20px 30px;
   text-align: center;
   border-radius: 8px; /* optional */
@@ -85,4 +86,39 @@
   backdrop-filter: blur(1.1px);
   -webkit-backdrop-filter: blur(1.1px);
   text-transform: uppercase;
+}
+/* Tablets */
+@media (max-width: 992px) {
+  .container-vision .vision,
+  .container-mission .mission {
+    font-size: 0.8rem;
+  }
+
+  .aboutthem .meaning {
+    font-size: 1.4rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container-vision .vision,
+  .container-mission .mission {
+    font-size: 0.7rem;
+  }
+
+  .aboutthem .meaning {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .container-vision .vision,
+  .container-mission .mission {
+    font-size: 0.65rem;
+  }
+
+  .aboutthem .meaning {
+    font-size: 0.95rem;
+  }
 }
