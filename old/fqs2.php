@@ -31,16 +31,21 @@
     <link rel="stylesheet" href="css/fqs.css" />
     <link rel="shortcut icon" href="imagess/cslogos.png" type="image/x-icon" />
     <style>
-        @keyframes spin {
+        .moving-image {
+            animation: moveRight 2s linear infinite;
+        }
+
+        @keyframes moveRight {
             0% {
-                transform: rotate(0deg);
+                left: -50px;
             }
 
             100% {
-                transform: rotate(360deg);
+                left: calc(100% + 50px);
             }
         }
     </style>
+
 
 </head>
 
@@ -151,10 +156,10 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <input type="submit" value="Send Message" class="btn btn-primary">
-                                                    <div class="submitting" style="display: none; text-align: center; margin-top: 10px;">
-                                                        <div class="spinner" style="border: 4px solid #f3f3f3; border-top: 4px solid #007bff; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 0 auto;"></div>
-                                                        <p>Sending message...</p>
+                                                    <div class="submitting" style="display: none; text-align: center; margin-top: 10px; height: 350px; position: relative; overflow: hidden;">
+                                                        <img src="imagess/casas/kimss.png" alt="Loading" class="moving-image" style="position: absolute; left: -50px; height: 350px; width: 350px;">
                                                     </div>
+
                                                     <div class="form-response" style="margin-top: 10px;"></div>
                                                 </div>
                                             </div>
@@ -403,9 +408,6 @@
                         if (data.toLowerCase().includes("message sent successfully")) {
                             form.reset();
                             form.dataset.submitted = "false"; // allow future submissions
-                            if (typeof grecaptcha !== "undefined") {
-                                grecaptcha.reset(); // Reset the reCAPTCHA
-                            }
                         } else {
                             form.dataset.submitted = "false"; // allow retry if failed
                         }
@@ -421,6 +423,7 @@
             });
         });
     </script>
+
 
 
 

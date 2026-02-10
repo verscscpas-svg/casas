@@ -30,17 +30,6 @@
     <link rel="stylesheet" href="css/faqs.css" />
     <link rel="stylesheet" href="css/fqs.css" />
     <link rel="shortcut icon" href="imagess/cslogos.png" type="image/x-icon" />
-    <style>
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
 
 </head>
 
@@ -151,17 +140,9 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <input type="submit" value="Send Message" class="btn btn-primary">
-                                                    <div class="submitting" style="display: none; text-align: center; margin-top: 10px;">
-                                                        <div class="spinner" style="border: 4px solid #f3f3f3; border-top: 4px solid #007bff; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 0 auto;"></div>
-                                                        <p>Sending message...</p>
-                                                    </div>
-                                                    <div class="form-response" style="margin-top: 10px;"></div>
+                                                    <div class="submitting"></div>
                                                 </div>
                                             </div>
-
-
-
-
 
                                         </div>
                                     </form>
@@ -364,65 +345,6 @@
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"version":"2024.11.0","token":"cd0b4b3a733644fc843ef0b185f98241","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
         crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const form = document.getElementById("contactForm");
-            const submitBtn = form.querySelector('input[type="submit"]');
-            const submittingDiv = form.querySelector(".submitting");
-            const responseDiv = form.querySelector(".form-response");
-
-            form.addEventListener("submit", function(e) {
-                e.preventDefault(); // STOP normal form submission
-
-                // Prevent double submission
-                if (form.dataset.submitted === "true") return;
-                form.dataset.submitted = "true";
-
-                // Disable button and show spinner
-                submitBtn.disabled = true;
-                submitBtn.value = "Sending...";
-                submittingDiv.style.display = "block";
-                responseDiv.innerHTML = "";
-
-                // Collect form data
-                const formData = new FormData(form);
-
-                // Send via AJAX
-                fetch(form.action, {
-                        method: "POST",
-                        body: formData
-                    })
-                    .then(res => res.text())
-                    .then(data => {
-                        submittingDiv.style.display = "none"; // hide spinner
-                        responseDiv.innerHTML = data; // show PHP message
-                        submitBtn.disabled = false;
-                        submitBtn.value = "Send Message";
-
-                        // Reset form if success
-                        if (data.toLowerCase().includes("message sent successfully")) {
-                            form.reset();
-                            form.dataset.submitted = "false"; // allow future submissions
-                            if (typeof grecaptcha !== "undefined") {
-                                grecaptcha.reset(); // Reset the reCAPTCHA
-                            }
-                        } else {
-                            form.dataset.submitted = "false"; // allow retry if failed
-                        }
-                    })
-                    .catch(err => {
-                        submittingDiv.style.display = "none";
-                        responseDiv.innerHTML = "An error occurred. Please try again.";
-                        submitBtn.disabled = false;
-                        submitBtn.value = "Send Message";
-                        form.dataset.submitted = "false";
-                        console.error(err);
-                    });
-            });
-        });
-    </script>
-
-
 
 </body>
 

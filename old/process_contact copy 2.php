@@ -1,4 +1,102 @@
-<!doctype html>
+<?php
+
+// Composer autoload
+require_once __DIR__ . '/vendor/autoload.php';
+require_once 'connection.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// --------------------
+// 1. CAPTCHA Verification
+// --------------------
+$recaptchaSecret = "YOUR_SECRET_KEY_HERE"; // <-- replace with your Google reCAPTCHA secret
+$recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
+$userIP = $_SERVER['REMOTE_ADDR'] ?? '';
+
+if (!$recaptchaResponse) {
+  exit('Please complete the CAPTCHA.');
+}
+
+// Verify with Google
+$verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret={$recaptchaSecret}&response={$recaptchaResponse}&remoteip={$userIP}";
+$verifyResponse = file_get_contents($verifyURL);
+$responseData = json_decode($verifyResponse);
+
+if (!$responseData->success) {
+  exit('CAPTCHA verification failed. Please try again.');
+}
+
+// --------------------
+// 2. Sanitize input
+// --------------------
+function sanitize($data)
+{
+  return htmlspecialchars(strip_tags(trim($data)));
+}
+
+$name    = sanitize($_POST['name'] ?? '');
+$email   = sanitize($_POST['email'] ?? '');
+$subject = sanitize($_POST['subject'] ?? '');
+$message = sanitize($_POST['message'] ?? '');
+
+// --------------------
+// 3. Validation
+// --------------------
+if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+  exit('All fields are required.');
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  exit('Invalid email address.');
+}
+
+// --------------------
+// 4. Save to database
+// --------------------
+try {
+  $stmt = $pdo->prepare("
+        INSERT INTO contact_messages (name, email, subject, message)
+        VALUES (:name, :email, :subject, :message)
+    ");
+
+  $stmt->execute([
+    ':name'    => $name,
+    ':email'   => $email,
+    ':subject' => $subject,
+    ':message' => $message
+  ]);
+} catch (PDOException $e) {
+  error_log($e->getMessage());
+  exit('Database error.');
+}
+
+// --------------------
+// 5. Send Email
+// --------------------
+$mail = new PHPMailer(true);
+
+try {
+  // SMTP config
+  $mail->isSMTP();
+  $mail->Host       = 'smtp.gmail.com';
+  $mail->SMTPAuth   = true;
+  $mail->Username   = 'vers.cscpas@gmail.com';
+  $mail->Password   = 'elrm feaj vilb idfs'; // Gmail App Password
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->Port       = 587;
+
+  // Email headers
+  $mail->setFrom('vers.cscpas@gmail.com', $name . ' via Contact Form');
+  $mail->addAddress('vers.cscpas@gmail.com');
+  $mail->addReplyTo($email, $name);
+  $mail->addEmbeddedImage(__DIR__ . '/CSL&CO.png', 'company_logo');
+
+  $mail->isHTML(true);
+  $mail->Subject = "New Contact Message from $name";
+
+  // HTML Email Body
+  $mail->Body = '.<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -108,7 +206,7 @@
                     >
                       Message
                     </td>
-                    <td style="border: 1px solid #e5e7eb">' . $message . '</td>
+                    <td style="border: 1px solid #e5e7eb; width: 100%;">' . $message . '</td>
                   </tr>
                 </table>
               </td>
@@ -134,4 +232,10 @@
       </tr>
     </table>
   </body>
-</html>
+</html>.'; // Keep your existing HTML body
+
+  $mail->send();
+  echo 'Message sent successfully!';
+} catch (Exception $e) {
+  echo 'Message saved but email failed: ' . $mail->ErrorInfo;
+}

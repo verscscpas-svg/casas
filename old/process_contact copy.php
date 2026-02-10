@@ -10,7 +10,7 @@ use PHPMailer\PHPMailer\Exception;
 // Sanitize input
 function sanitize($data)
 {
-    return htmlspecialchars(strip_tags(trim($data)));
+  return htmlspecialchars(strip_tags(trim($data)));
 }
 
 // Get POST data
@@ -21,59 +21,62 @@ $message = sanitize($_POST['message'] ?? '');
 
 // Validation
 if (empty($name) || empty($email) || empty($subject) || empty($message)) {
-    exit('All fields are required.');
+  exit('All fields are required.');
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    exit('Invalid email address.');
+  exit('Invalid email address.');
 }
 
 // Save to database
 try {
-    $stmt = $pdo->prepare("
+  $stmt = $pdo->prepare("
         INSERT INTO contact_messages (name, email, subject, message)
         VALUES (:name, :email, :subject, :message)
     ");
 
-    $stmt->execute([
-        ':name'    => $name,
-        ':email'   => $email,
-        ':subject' => $subject,
-        ':message' => $message
-    ]);
+  $stmt->execute([
+    ':name'    => $name,
+    ':email'   => $email,
+    ':subject' => $subject,
+    ':message' => $message
+  ]);
 } catch (PDOException $e) {
-    error_log($e->getMessage());
-    exit('Database error.');
+  error_log($e->getMessage());
+  exit('Database error.');
 }
 
 // Send Email
 $mail = new PHPMailer(true);
 
 try {
-    // SMTP config
-    $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'vers.cscpas@gmail.com';
-    $mail->Password   = 'elrm feaj vilb idfs'; // Gmail App Password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
+  // SMTP config
+  $mail->isSMTP();
+  $mail->Host       = 'smtp.gmail.com';
+  $mail->SMTPAuth   = true;
+  $mail->Username   = 'vers.cscpas@gmail.com';
+  $mail->Password   = 'elrm feaj vilb idfs'; // Gmail App Password
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->Port       = 587;
 
-    // Email headers
-    $mail->setFrom(
-        'vers.cscpas@gmail.com',
-        $name . ' via Contact Form'
-    );
+  // Email headers
+  $mail->setFrom(
+    'vers.cscpas@gmail.com',
+    $name . ' via Contact Form'
+  );
 
-    $mail->addAddress('vers.cscpas@gmail.com');
-    $mail->addReplyTo($email, $name);
+  $mail->addAddress('vers.cscpas@gmail.com');
+  $mail->addReplyTo($email, $name);
 
-    $mail->isHTML(true);
-    $mail->Subject = "New Contact Message from $name";
+  // ✅ Embed logo image (works without a website)
+  $mail->addEmbeddedImage(__DIR__ . '/CSL&CO.png', 'company_logo');
 
-    // HTML Email Body
-    $mail->Body = '
-<!DOCTYPE html>
+  $mail->isHTML(true);
+  $mail->Subject = "New Contact Message from $name";
+
+  // HTML Email Body
+  $mail->Body = '
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -107,8 +110,9 @@ try {
               <td
                 style="background: #0f172a; padding: 20px; text-align: center"
               >
+                <!-- ✅ Use CID for embedded image -->
                 <img
-                  src="../imagess/cslogos.png"
+                  src="cid:company_logo"
                   alt="Company Logo"
                   style="max-height: 60px"
                 />
@@ -182,11 +186,7 @@ try {
                     >
                       Message
                     </td>
-                    <td
-                      style="border: 1px solid #e5e7eb; white-space: pre-line"
-                    >
-                      ' . $message . '
-                    </td>
+                    <td style="border: 1px solid #e5e7eb; width: 100%;">' . $message . '</td>
                   </tr>
                 </table>
               </td>
@@ -215,8 +215,10 @@ try {
 </html>
 ';
 
-    $mail->send();
-    echo 'Message sent successfully!';
+
+
+  $mail->send();
+  echo 'Message sent successfully!';
 } catch (Exception $e) {
-    echo 'Message saved but email failed: ' . $mail->ErrorInfo;
+  echo 'Message saved but email failed: ' . $mail->ErrorInfo;
 }
