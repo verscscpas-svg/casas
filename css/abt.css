@@ -74,7 +74,7 @@
 .aboutthem .meaning {
   background-color: #294169;
   color: #294169;
-  font-size: xx-large;
+  font-size: large;
   padding: 20px 30px;
   text-align: center;
   border-radius: 8px; /* optional */
@@ -85,7 +85,7 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(1.1px);
   -webkit-backdrop-filter: blur(1.1px);
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 /* Tablets */
 @media (max-width: 992px) {
@@ -96,6 +96,10 @@
 
   .aboutthem .meaning {
     font-size: 1.4rem;
+  }
+  .heading-section h2,
+  .heading-section .h2 {
+    font-size: 30px;
   }
 }
 
@@ -120,5 +124,28 @@
 
   .aboutthem .meaning {
     font-size: 0.95rem;
+  }
+}
+.map-container {
+  width: auto;
+  height: 250px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.bg-darken {
+  font-size: 14px;
+}
+@media (max-width: 992px) {
+  .bg-darken {
+    font-size: smaller;
+  }
+}
+@media (max-width: 576px) {
+  .bg-darken {
+    font-size: smaller;
   }
 }

@@ -1,5 +1,81 @@
 <?php
- 
+
+// Composer autoload
+require_once __DIR__ . '/vendor/autoload.php';
+require_once 'connection.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Sanitize input
+function sanitize($data)
+{
+    return htmlspecialchars(strip_tags(trim($data)));
+}
+
+// Get POST data
+$name    = sanitize($_POST['name'] ?? '');
+$email   = sanitize($_POST['email'] ?? '');
+$subject = sanitize($_POST['subject'] ?? '');
+$message = sanitize($_POST['message'] ?? '');
+
+// Validation
+if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+    exit('All fields are required.');
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    exit('Invalid email address.');
+}
+
+// Save to database
+try {
+    $stmt = $pdo->prepare("
+        INSERT INTO contact_messages (name, email, subject, message)
+        VALUES (:name, :email, :subject, :message)
+    ");
+
+    $stmt->execute([
+        ':name'    => $name,
+        ':email'   => $email,
+        ':subject' => $subject,
+        ':message' => $message
+    ]);
+} catch (PDOException $e) {
+    error_log($e->getMessage());
+    exit('Database error.');
+}
+
+// Send Email
+$mail = new PHPMailer(true);
+
+try {
+    // SMTP config
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'vers.cscpas@gmail.com';
+    $mail->Password   = 'elrm feaj vilb idfs'; // Gmail App Password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
+
+    // Email headers
+    $mail->setFrom(
+        'vers.cscpas@gmail.com',
+        $name . ' via Contact Form'
+    );
+
+    $mail->addAddress('vers.cscpas@gmail.com');
+    $mail->addReplyTo($email, $name);
+
+    // ✅ Embed logo image (works without a website)
+    $mail->addEmbeddedImage(__DIR__ . '/cslogos.png', 'company_logo');
+
+    $mail->isHTML(true);
+    $mail->Subject = "New Contact Message from $name";
+
+    // HTML Email Body
+    $mail->Body = '
 <!DOCTYPE html>
 <html>
   <head>
@@ -34,13 +110,14 @@
               <td
                 style="background: #0f172a; padding: 20px; text-align: center"
               >
+                <!-- ✅ Use CID for embedded image -->
                 <img
-                  src="imagess/cslogos.png"
+                  src="cid:company_logo"
                   alt="Company Logo"
-                  style="max-height: 60px"
+                  style="max-height: 60px;"
                 />
                 <h2 style="color: #ffffff; margin: 10px 0 0">
-                  Your Company Name
+                  CASAS SAN LUIS & CO.
                 </h2>
               </td>
             </tr>
@@ -69,7 +146,7 @@
                     >
                       Name
                     </td>
-                    <td style="border: 1px solid #e5e7eb">'.$name.'</td>
+                    <td style="border: 1px solid #e5e7eb">' . $name . '</td>
                   </tr>
 
                   <tr>
@@ -82,7 +159,7 @@
                     >
                       Email
                     </td>
-                    <td style="border: 1px solid #e5e7eb">'.$email.'</td>
+                    <td style="border: 1px solid #e5e7eb">' . $email . '</td>
                   </tr>
 
                   <tr>
@@ -95,7 +172,7 @@
                     >
                       Subject
                     </td>
-                    <td style="border: 1px solid #e5e7eb">'.$subject.'</td>
+                    <td style="border: 1px solid #e5e7eb">' . $subject . '</td>
                   </tr>
 
                   <tr>
@@ -112,7 +189,7 @@
                     <td
                       style="border: 1px solid #e5e7eb; white-space: pre-line"
                     >
-                      '.$message.'
+                      ' . $message . '
                     </td>
                   </tr>
                 </table>
@@ -131,7 +208,7 @@
                 "
               >
                 This message was sent from your website contact form.<br />
-                © '.date('Y').' Casas San Luis & Co
+                © ' . date('Y') . ' Casas San Luis & Co
               </td>
             </tr>
           </table>
@@ -140,4 +217,10 @@
     </table>
   </body>
 </html>
-?>
+';
+
+    $mail->send();
+    echo 'Message sent successfully!';
+} catch (Exception $e) {
+    echo 'Message saved but email failed: ' . $mail->ErrorInfo;
+}
