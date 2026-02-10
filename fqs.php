@@ -95,7 +95,7 @@
                         <div class="row g-0">
                             <div class="col-lg-12">
                                 <div class="contact-wrap w-100 p-md-5 p-4">
-                                    <h3>Contact us</h3>
+                                    <h3>Have a Question? <br>Contact us</h3>
                                     <p class="mb-4">We're open for any suggestion or just to have a chat</p>
                                     <div class="row mb-4">
                                         <div class="col-md-4">
