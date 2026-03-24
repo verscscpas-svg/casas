@@ -1988,6 +1988,7 @@ textarea.form-control {
 
 .mb-5 {
   margin-bottom: 3rem !important;
+  color: #fff;
 }
 
 .ms-auto {
@@ -2052,7 +2053,7 @@ textarea.form-control {
 }
 
 .bg-light {
-  background-color: #f8f9fa !important;
+  background-color: #294169;
 }
 
 .bg-white {
@@ -2131,7 +2132,7 @@ textarea.form-control {
 }
 body {
   font-family: "MyFont", Arial, sans-serif;
-  background: GRAY;
+  background: #294169;
   /* background: linear-gradient(45deg, #294169, #4281e7); */
 
   font-size: 16px;
@@ -2559,11 +2560,14 @@ h5,
   width: 10px;
 }
 
-.bg-light {
+/* .bg-light {
   background-image: url("../imagess/cscover/serv.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+} */
+.bg-light {
+  background-color: #294169;
 }
 
 .bg-darken {

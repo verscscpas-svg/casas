@@ -101,7 +101,7 @@
                                         <div class="col-md-4">
                                             <div class="dbox w-100 d-flex align-items-start">
                                                 <div class="text">
-                                                    <p><span>Address:</span> Unit 8E, 8F, Salcedo One Center, 170 Salcedo St. Legaspi Village, Makati City</p>
+                                                    <p><span>Address:</span><a href="https://maps.app.goo.gl/EnF4Ry65faJt6Uad6" target="_blank">Unit 8E, 8F, Salcedo One Center, 170 Salcedo St. Legaspi Village, Makati City</a> </p>
                                                 </div>
                                             </div>
                                         </div>
