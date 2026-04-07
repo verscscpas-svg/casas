@@ -2018,7 +2018,7 @@ textarea.form-control {
 }
 body {
   font-family: "MyFont", Arial, sans-serif;
-  background: GRAY;
+  background: #294169;
   /* background: linear-gradient(45deg, #294169, #4281e7); */
 
   font-size: 16px;
@@ -3012,13 +3012,13 @@ textarea.form-control {
   right: 0;
   bottom: 0;
   opacity: 0.8;
-  background: #000000;
+  background: #294169;
   z-index: -1;
 }
 .ftco-footer .logo a {
   position: relative;
   text-decoration: none;
-  color: #294169;
+  color: WHITE;
   font-size: 24px;
 }
 .ftco-footer .logo a small,

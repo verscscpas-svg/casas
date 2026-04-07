@@ -37,7 +37,7 @@
   flex-direction: column;
   gap: 10px;
   /* MAGIC PART: Centers the title vertically when explanation is hidden */
-  justify-content: center;
+  justify-content: start;
   transition: justify-content 0.5s ease;
 }
 
@@ -70,7 +70,7 @@
   opacity: 0;
   overflow: hidden;
   padding: 0 20px;
-  text-align: center;
+  text-align: start;
   font-size: calc(12px + 0.4vw);
   line-height: 1.6;
   background: #294169;
@@ -141,19 +141,6 @@
 
 /* h2  */
 .heading-section {
-  /* From https://css.glass */
-  /* background: #294169; */
-  /* border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(9.6px);
-  -webkit-backdrop-filter: blur(9.6px);
-  border: 1px solid rgba(41, 65, 105, 0.45);
-  color: white;
-  padding: 40px 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  margin: 0 auto 30px auto;
-
-  transition: all 0.4s ease; */
   align-items: center;
 }
 
