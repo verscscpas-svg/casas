@@ -865,6 +865,11 @@ progress {
     transition: none;
   }
 }
+/* @media (min-width: 768px) and (max-width: 1024px) {
+  #subject {
+    width: 790px;
+  }
+} */
 .form-control:hover:not(:disabled):not([readonly])::file-selector-button {
   background-color: #dde0e3;
 }
@@ -2051,10 +2056,6 @@ textarea.form-control {
   text-align: center !important;
 }
 
-.bg-light {
-  background-color: #f8f9fa !important;
-}
-
 .bg-white {
   background-color: #fff !important;
 }
@@ -2560,10 +2561,7 @@ h5,
 }
 
 .bg-light {
-  background-image: url("../imagess/cscover/serv.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-color: #294169;
 }
 
 .bg-darken {
@@ -3776,7 +3774,13 @@ textarea.form-control {
 }
 
 .contact-wrap {
-  background: #fff;
+  /* From https://css.glass */
+  background: rgb(68, 84, 110);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(41, 65, 105, 0.3);
 }
 .contact-wrap h3,
 .contact-wrap .h3 {

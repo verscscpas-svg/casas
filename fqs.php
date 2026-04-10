@@ -133,7 +133,7 @@
                                                     <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                                                 </div>
@@ -143,7 +143,7 @@
                                                     <textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Create a message here" required></textarea>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
+                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <div class="g-recaptcha" data-sitekey="6LdzUGYsAAAAACiVm3fCcCYVTEvYlzwAZfIwi-oo"></div>
                                                 </div>
@@ -298,7 +298,7 @@
                             Copyright &copy;
                             <script
                                 data-cfasync="false"
-                                src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                                src="js/email-decode.min.js"></script>
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
