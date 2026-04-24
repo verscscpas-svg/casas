@@ -135,10 +135,12 @@ td ul li {
 }
 @media (min-width: 853px) {
 }
+.chg {
+  color: #e0e0e0;
+}
 h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+  color: #ffffff;
+
   animation: fadeDown 1s ease;
 }
 

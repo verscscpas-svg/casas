@@ -1,0 +1,88 @@
+/* === HERO WRAPPER === */
+.container-xl .row {
+  display: flex !important;
+  align-items: stretch;
+}
+
+/* Left logo box */
+.hero-logo-box {
+  width: 220px;
+  min-width: 220px;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 2rem;
+  border-radius: 12px 0 0 12px;
+}
+
+.hero-logo-box img {
+  width: 300px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.hero-logo-box .brand-name {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Right content area */
+.col-md-7 {
+  background: #989ca0;
+  border-radius: 0 12px 12px 0;
+  padding: 2.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* From https://css.glass */
+  background: rgba(177, 177, 177, 0.21);
+  border-radius: 0 16px 16px 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+}
+
+.text.adjust2 h1.upper {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.btn-white {
+  background: #185fa5;
+  color: white;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-white:hover {
+  background: #0c447c;
+  color: white;
+}
+
+/* Responsive — stack vertically on mobile */
+@media (max-width: 768px) {
+  .hero-logo-box {
+    width: 100%;
+    min-width: unset;
+    border-radius: 12px 12px 0 0;
+  }
+  .col-md-7 {
+    border-radius: 0 0 12px 12px;
+  }
+}

@@ -2132,13 +2132,13 @@ textarea.form-control {
 }
 body {
   font-family: "MyFont", Arial, sans-serif;
-  background: GRAY;
+  background: rgb(223, 223, 223);
   /* background: linear-gradient(45deg, #294169, #4281e7); */
 
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
-  color: #8c8c8c;
+  color: #ffffff;
 }
 
 a,
@@ -3784,7 +3784,7 @@ textarea.form-control {
 }
 .contact-wrap h3,
 .contact-wrap .h3 {
-  color: #000000;
+  color: #ffffff;
   font-weight: 400;
   font-size: 30px;
 }
@@ -3810,7 +3810,7 @@ textarea.form-control {
   font-weight: 700;
 }
 .dbox p a {
-  color: #4f86f9;
+  color: #ffffff;
 }
 .dbox .text {
   width: 100%;

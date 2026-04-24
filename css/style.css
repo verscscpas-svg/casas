@@ -1171,6 +1171,7 @@ textarea.form-control {
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  height: 70px;
 }
 .navbar > .container,
 .navbar > .container-fluid,
@@ -1871,6 +1872,7 @@ textarea.form-control {
 
 .mb-4 {
   margin-bottom: 1.5rem !important;
+  color: #333;
 }
 
 .mb-5 {
@@ -2387,7 +2389,7 @@ h5,
 .slider-hero .work .text .h1 {
   font-weight: 400;
   color: #fff;
-  font-size: 50px;
+
   line-height: 1.2;
   margin-top: -40px;
 }
@@ -2547,7 +2549,7 @@ textarea.form-control {
   margin-bottom: 25px;
 }
 .services-wrap .services {
-  padding: 40px;
+  padding: 10px;
   display: block;
   width: 100%;
   margin-bottom: 0px;
@@ -2587,7 +2589,7 @@ textarea.form-control {
 .services {
   width: 100%;
   background: #fff;
-  padding: 30px;
+  padding-left: 20px;
   margin-bottom: 20px;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -3197,7 +3199,7 @@ textarea.form-control {
   font-size: 13px;
   display: block;
   margin-bottom: 5px;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.3);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
