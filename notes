@@ -20,7 +20,6 @@ git push https://github.com/verscscpas-svg/casas
 /_ Styles for desktops and large screens _/
 }
 
-
 echo "# project" >> README.md
 git init
 git add README.md
@@ -32,7 +31,6 @@ git remote add origin https://github.com/verscscpas-svg/project.git
 <<<<<<< HEAD
 git push -u origin main
 
-
 upload a file
 git init
 git add .
@@ -40,12 +38,11 @@ git commit -am "anyname"
 https://github.com/verscscpas-svg/project
 
 git remote add origin https://github.com/verscscpas-svg/project.git
-git push  origin master
+git push origin master
 =======
 git push -u origin main
->>>>>>> 07e635fb345f6e810185f6238a9f35f9e489243b
 
-
+> > > > > > > 07e635fb345f6e810185f6238a9f35f9e489243b
 
 </div>
 

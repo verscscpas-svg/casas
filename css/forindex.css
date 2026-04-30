@@ -56,7 +56,7 @@
 
 .text.adjust2 h1.upper {
   text-transform: uppercase;
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
   font-weight: 600;
 }
 

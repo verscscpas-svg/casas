@@ -195,7 +195,6 @@
         box-shadow: 0 10px 40px rgba(41, 65, 105, 0.15);
         aspect-ratio: 4/3;
         background: var(--cb-gray);
-        cursor: pointer;
       }
       .cb-entry-img img {
         width: 100%;
@@ -215,47 +214,6 @@
       }
       .cb-entry-img:hover .cb-img-overlay {
         background: rgba(41, 65, 105, 0.1);
-      }
-      .cb-img-placeholder {
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #d8e4f5 0%, #c0d2ec 100%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.9rem;
-      }
-      .cb-img-placeholder svg {
-        opacity: 0.35;
-      }
-      .cb-img-placeholder p {
-        font-size: 0.82rem;
-        color: var(--cb-navy);
-        opacity: 0.45;
-        font-style: italic;
-      }
-      .cb-upload-lbl {
-        position: absolute;
-        bottom: 12px;
-        right: 12px;
-        background: var(--cb-navy);
-        color: #fff;
-        font-size: 0.73rem;
-        font-weight: 600;
-        padding: 6px 13px;
-        border-radius: 100px;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity 0.3s;
-        z-index: 10;
-        border: none;
-      }
-      .cb-entry-img:hover .cb-upload-lbl {
-        opacity: 1;
-      }
-      .cb-upload-inp {
-        display: none;
       }
       .cb-cat-tag {
         position: absolute;
@@ -430,7 +388,6 @@
         <div class="withlogo">
           <img src="imagess/cslogos.png" alt="css" class="imgnav" />
           <a class="navbar-brand" href="index.html">
-            <!-- Casas<small> San Luis </small> <small class="blk">& Co.</small> -->
             Casas San Luis & Co.
             <span class="sml"
               >&nbsp;Certified Public Accountant &amp; Consultation</span
@@ -452,25 +409,50 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item" id="hometo">
-              <a class="nav-link active" href="#">Home</a>
-            </li>
-            <!-- <li class="nav-item"><a class="nav-link" href="about.html">About</a></li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a
+                class="nav-link active"
+                href="index.html"
+                style="font-weight: bold; color: black"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="fqs.html">FQ's</a>
+              <a
+                class="nav-link"
+                href="services.html"
+                style="font-weight: bold; color: black"
+                >Services</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blog.html">Blog's</a>
+              <a
+                class="nav-link"
+                href="about.html"
+                style="font-weight: bold; color: black"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="fqs.html"
+                style="font-weight: bold; color: black"
+                >FQ's</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="blog.html"
+                style="font-weight: bold; color: #4f86f9"
+                >Blog's</a
+              >
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <!-- HERO -->
     <section class="cb-hero">
       <div class="cb-hero-badge">Our Journey</div>
@@ -493,30 +475,10 @@
       <article class="cb-entry" id="cb-entry-1">
         <div class="cb-entry-img">
           <span class="cb-cat-tag">Event</span>
-          <label class="cb-upload-lbl" for="cb-img-1">+ Add Photo</label>
-          <input
-            class="cb-upload-inp"
-            type="file"
-            id="cb-img-1"
-            accept="image/*"
-            onchange="cbPreview(this, 'cb-prev-1', 'cb-ph-1')"
+          <img
+            src="imagess/blog/tbuil.jpg"
+            alt="Annual Company Team Building Event"
           />
-          <img id="cb-prev-1" src="" alt="" style="display: none" />
-          <div class="cb-img-placeholder" id="cb-ph-1">
-            <svg
-              width="46"
-              height="46"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#294169"
-              stroke-width="1.5"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="3" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
-            <p>Hover to add photo</p>
-          </div>
           <div class="cb-img-overlay"></div>
         </div>
         <div class="cb-entry-body">
@@ -575,30 +537,10 @@
       <article class="cb-entry" id="cb-entry-2">
         <div class="cb-entry-img">
           <span class="cb-cat-tag">Achievement</span>
-          <label class="cb-upload-lbl" for="cb-img-2">+ Add Photo</label>
-          <input
-            class="cb-upload-inp"
-            type="file"
-            id="cb-img-2"
-            accept="image/*"
-            onchange="cbPreview(this, 'cb-prev-2', 'cb-ph-2')"
+          <img
+            src="imagess/blog2.jpg"
+            alt="Q1 Award Night: Celebrating Excellence"
           />
-          <img id="cb-prev-2" src="" alt="" style="display: none" />
-          <div class="cb-img-placeholder" id="cb-ph-2">
-            <svg
-              width="46"
-              height="46"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#294169"
-              stroke-width="1.5"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="3" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
-            <p>Hover to add photo</p>
-          </div>
           <div class="cb-img-overlay"></div>
         </div>
         <div class="cb-entry-body">
@@ -656,30 +598,10 @@
       <article class="cb-entry" id="cb-entry-3">
         <div class="cb-entry-img">
           <span class="cb-cat-tag">CSR</span>
-          <label class="cb-upload-lbl" for="cb-img-3">+ Add Photo</label>
-          <input
-            class="cb-upload-inp"
-            type="file"
-            id="cb-img-3"
-            accept="image/*"
-            onchange="cbPreview(this, 'cb-prev-3', 'cb-ph-3')"
+          <img
+            src="imagess/blog3.jpg"
+            alt="Community Outreach: Giving Back Together"
           />
-          <img id="cb-prev-3" src="" alt="" style="display: none" />
-          <div class="cb-img-placeholder" id="cb-ph-3">
-            <svg
-              width="46"
-              height="46"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#294169"
-              stroke-width="1.5"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="3" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
-            <p>Hover to add photo</p>
-          </div>
           <div class="cb-img-overlay"></div>
         </div>
         <div class="cb-entry-body">
@@ -773,19 +695,6 @@
         .querySelectorAll(".cb-entry")
         .forEach((el) => cbObserver.observe(el));
 
-      /* Image preview */
-      function cbPreview(input, previewId, placeholderId) {
-        const file = input.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          document.getElementById(previewId).src = e.target.result;
-          document.getElementById(previewId).style.display = "block";
-          document.getElementById(placeholderId).style.display = "none";
-        };
-        reader.readAsDataURL(file);
-      }
-
       /* Add new post */
       let cbCount = 4;
       function cbAddPost() {
@@ -801,18 +710,7 @@
         article.innerHTML = `
       <div class="cb-entry-img">
         <span class="cb-cat-tag" contenteditable="true">Category</span>
-        <label class="cb-upload-lbl" for="cb-img-${n}">+ Add Photo</label>
-        <input class="cb-upload-inp" type="file" id="cb-img-${n}" accept="image/*"
-               onchange="cbPreview(this,'cb-prev-${n}','cb-ph-${n}')"/>
-        <img id="cb-prev-${n}" src="" alt="" style="display:none;"/>
-        <div class="cb-img-placeholder" id="cb-ph-${n}">
-          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#294169" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="3"/>
-            <circle cx="8.5" cy="8.5" r="1.5"/>
-            <polyline points="21 15 16 10 5 21"/>
-          </svg>
-          <p>Hover to add photo</p>
-        </div>
+        <img src="imagess/blogX.jpg" alt="Blog Image" />
         <div class="cb-img-overlay"></div>
       </div>
       <div class="cb-entry-body">
@@ -861,6 +759,7 @@
         cbCount++;
       }
     </script>
+
     <footer
       class="ftco-footer img"
       style="background-image: url(images/bg_1.jpg)"
@@ -872,7 +771,6 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2 logo d-flex">
                 <a class="navbar-brand" href="#">
-                  <!-- Casas<small class="blks"> San Luis &amp; Co</small> -->
                   Casas San Luis & Co.
                   <span>Certified &amp; Public Accountant</span>
                 </a>
@@ -898,7 +796,6 @@
                       Village, Makati City</span
                     >
                   </li>
-                  <!-- <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text"><span class="__cf_email__" data-cfemail="6e070008012e17011b1c0a01030f0700400d0103">[email&#160;protected]</span></span></a></li> -->
                 </ul>
               </div>
               <ul class="ftco-footer-social mt-4">
@@ -963,8 +860,6 @@
                       >MANAGEMENT CONSULTANCY</a
                     >
                   </li>
-                  <!-- <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Risk Management</a></li>
-                      <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Technology Consulting</a></li> -->
                 </ul>
               </div>
             </div>
@@ -985,7 +880,6 @@
                       ></span
                     >
                   </li>
-                  <!-- <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text"><span class="__cf_email__" data-cfemail="6e070008012e17011b1c0a01030f0700400d0103">[email&#160;protected]</span></span></a></li> -->
                 </ul>
               </div>
             </div>
@@ -1035,7 +929,6 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "UA-23581568-13");
     </script>
 
