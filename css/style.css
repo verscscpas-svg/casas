@@ -1209,7 +1209,16 @@ textarea.form-control {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  align-items: end;
+  justify-content: center;
+  border-bottom: 1px solid white;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100px;
+  justify-content: center;
 }
 .navbar-nav .nav-link {
   padding-right: 0;
@@ -2254,6 +2263,7 @@ h5,
     padding-bottom: 1rem;
     padding-top: 0;
     color: #fff;
+    /* From https://css.glass */
   }
 }
 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link.active {

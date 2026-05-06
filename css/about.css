@@ -1299,6 +1299,7 @@ textarea.form-control {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  height: 70px;
 }
 
 .navbar-brand {
@@ -1321,6 +1322,14 @@ textarea.form-control {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  width: 100px;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .navbar-nav .nav-link {
   padding-right: 0;
