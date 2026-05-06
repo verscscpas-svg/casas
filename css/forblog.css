@@ -2210,7 +2210,7 @@ h5,
     font-size: 8px;
   }
   .imgnav {
-    width: 100%; /* adjust as needed */
+    width: 50px; /* adjust as needed */
     height: auto; /* keeps aspect ratio */
   }
 }
