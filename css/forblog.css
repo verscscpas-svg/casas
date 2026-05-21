@@ -54,7 +54,7 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-font-sans-serif);
+  /* font-family: var(--bs-font-sans-serif); */
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -1544,7 +1544,7 @@ textarea.form-control {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: var(--bs-font-sans-serif);
+  /* font-family: var(--bs-font-sans-serif); */
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -2032,7 +2032,7 @@ textarea.form-control {
   font-style: normal;
 }
 body {
-  font-family: "MyFont", Arial, sans-serif;
+  /* font-family: "MyFont", Arial, sans-serif; */
   background: #294169;
   /* background: linear-gradient(45deg, #294169, #4281e7); */
 

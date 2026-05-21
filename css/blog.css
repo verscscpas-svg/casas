@@ -17,11 +17,11 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family:
+  /* font-family:
     "Segoe UI",
     system-ui,
     -apple-system,
-    sans-serif;
+    sans-serif; */
   background: var(--cb-white);
   color: var(--cb-navy-d);
   overflow-x: hidden;

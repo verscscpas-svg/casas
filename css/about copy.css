@@ -163,7 +163,7 @@ td ul li {
 
 body {
   margin: 0;
-  /* font-family: var(--bs-font-sans-serif); */
+  font-family: var(--bs-font-sans-serif);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -865,11 +865,6 @@ progress {
     transition: none;
   }
 }
-/* @media (min-width: 768px) and (max-width: 1024px) {
-  #subject {
-    width: 790px;
-  }
-} */
 .form-control:hover:not(:disabled):not([readonly])::file-selector-button {
   background-color: #dde0e3;
 }
@@ -1315,6 +1310,7 @@ textarea.form-control {
   text-decoration: none;
   white-space: nowrap;
 }
+/* Large phones / small tablets (481px - 768px) */
 @media (max-width: 768px) {
   .navbar-nav {
     justify-content: center;
@@ -2007,6 +2003,7 @@ textarea.form-control {
 
 .mb-5 {
   margin-bottom: 3rem !important;
+  color: #fff;
 }
 
 .ms-auto {
@@ -2068,6 +2065,10 @@ textarea.form-control {
 
 .text-center {
   text-align: center !important;
+}
+
+.bg-light {
+  background-color: #294169;
 }
 
 .bg-white {
@@ -2145,14 +2146,14 @@ textarea.form-control {
   font-style: normal;
 }
 body {
-  /* font-family: "MyFont", Arial, sans-serif; */
-  background: rgb(223, 223, 223);
+  font-family: "MyFont", Arial, sans-serif;
+  background: #294169;
   /* background: linear-gradient(45deg, #294169, #4281e7); */
 
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
-  color: #ffffff;
+  color: #8c8c8c;
 }
 
 a,
@@ -2574,6 +2575,12 @@ h5,
   width: 10px;
 }
 
+/* .bg-light {
+  background-image: url("../imagess/cscover/serv.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+} */
 .bg-light {
   background-color: #294169;
 }
@@ -3582,6 +3589,7 @@ textarea.form-control {
   -webkit-box-shadow: 0px 5px 25px -2px rgba(0, 0, 0, 0.01);
   -moz-box-shadow: 0px 5px 25px -2px rgba(0, 0, 0, 0.01);
   box-shadow: 0px 5px 25px -2px rgba(0, 0, 0, 0.01);
+  height: 260px;
 }
 .staff .text h3,
 .staff .text .h3 {
@@ -3788,17 +3796,11 @@ textarea.form-control {
 }
 
 .contact-wrap {
-  /* From https://css.glass */
-  background: rgb(68, 84, 110);
-  border-radius: 16px 16px 0 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(41, 65, 105, 0.3);
+  background: #fff;
 }
 .contact-wrap h3,
 .contact-wrap .h3 {
-  color: #ffffff;
+  color: #000000;
   font-weight: 400;
   font-size: 30px;
 }
@@ -3824,7 +3826,7 @@ textarea.form-control {
   font-weight: 700;
 }
 .dbox p a {
-  color: #ffffff;
+  color: #4f86f9;
 }
 .dbox .text {
   width: 100%;
@@ -4069,4 +4071,11 @@ textarea.form-control {
 .categories li.active a {
   color: #000000;
   font-style: italic;
+}
+.staff:hover {
+  cursor: pointer;
+}
+
+.text:hover {
+  cursor: pointer;
 }

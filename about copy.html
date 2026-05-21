@@ -33,340 +33,6 @@
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/abt.css" />
     <link rel="shortcut icon" href="imagess/cslogos.png" type="image/x-icon" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <style>
-      .vm-wrap {
-        font-family: sans-serif;
-        padding: 3.5rem 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        background: #ffffff;
-      }
-
-      .vm-row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 3rem 0;
-      }
-
-      .vm-row + .vm-row {
-        border-top: 0.5px solid #c2cedf;
-      }
-
-      .vm-head {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        text-align: center;
-      }
-
-      .vm-badge {
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: #294169;
-        background: #e8edf5;
-        border: 0.5px solid #c2cedf;
-        border-radius: 99px;
-        padding: 4px 16px;
-      }
-
-      .vm-title {
-        font-size: 26px;
-        font-weight: 500;
-        color: #294169;
-        letter-spacing: 0.04em;
-        position: relative;
-        padding-bottom: 14px;
-      }
-
-      .vm-title::after {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 44px;
-        height: 3px;
-        background: #d4af37;
-        border-radius: 2px;
-      }
-
-      .vm-card {
-        max-width: 680px;
-        width: 100%;
-        background: #e8edf5;
-        border: 0.5px solid #c2cedf;
-        border-left: 4px solid #294169;
-        border-radius: 0 12px 12px 0;
-        padding: 1.75rem 2rem;
-        position: relative;
-      }
-
-      .vm-card-quote {
-        position: absolute;
-        top: 1rem;
-        right: 1.5rem;
-        font-family: Georgia, serif;
-        font-size: 44px;
-        color: #c2cedf;
-        line-height: 1;
-      }
-
-      .vm-card-text {
-        font-size: 16px;
-        line-height: 1.85;
-        color: #294169;
-        font-style: italic;
-        padding-right: 2.5rem;
-      }
-
-      /* Mobile */
-      @media (max-width: 520px) {
-        .vm-wrap {
-          padding: 2rem 1rem;
-        }
-        .vm-row {
-          padding: 2rem 0;
-        }
-        .vm-title {
-          font-size: 21px;
-        }
-        .vm-card {
-          padding: 1.25rem 1.25rem;
-        }
-        .vm-card-quote {
-          display: none;
-        }
-        .vm-card-text {
-          font-size: 15px;
-          padding-right: 0;
-        }
-      }
-      /* ─── Scroll-in animation (initial state) ─── */
-      .vm-row {
-        opacity: 0;
-        transform: translateY(24px);
-        transition:
-          opacity 0.6s ease,
-          transform 0.6s ease;
-      }
-
-      /* Triggered by JS when in view */
-      .vm-row.vm-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* ─── Badge hover ─── */
-      .vm-badge {
-        transition:
-          background 0.3s ease,
-          color 0.3s ease;
-      }
-      .vm-row:hover .vm-badge {
-        background: #294169;
-        color: #e8edf5;
-      }
-
-      /* ─── Title underline expands on hover ─── */
-      .vm-title::after {
-        transition: width 0.4s ease;
-      }
-      .vm-row:hover .vm-title::after {
-        width: 80px;
-      }
-
-      /* ─── Card hover ─── */
-      .vm-card {
-        transition:
-          background 0.3s ease,
-          border-left-color 0.3s ease,
-          border-left-width 0.3s ease;
-      }
-      .vm-row:hover .vm-card {
-        background: #dce4f0;
-        border-left-width: 6px;
-      }
-
-      /* ─── Quote mark hover ─── */
-      .vm-card-quote {
-        transition: color 0.3s ease;
-      }
-      .vm-row:hover .vm-card-quote {
-        color: #a8bcd6;
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      /* ─── About Section ─── */
-      /* ─── About Section — Base ─── */
-      .aboutthem {
-        background: #294169 !important;
-        padding: 5rem 2rem !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        width: 100% !important;
-      }
-
-      .aboutthem-inner {
-        max-width: 800px !important;
-        width: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 1.5rem !important;
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 0.7s ease,
-          transform 0.7s ease;
-      }
-
-      .aboutthem-inner.at-visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-      }
-
-      .aboutthem-line {
-        display: flex !important;
-        align-items: center !important;
-        gap: 14px !important;
-        justify-content: center !important;
-        width: 100% !important;
-      }
-
-      .aboutthem-line-bar {
-        width: 40px !important;
-        height: 2px !important;
-        background: #d4af37 !important;
-        border-radius: 2px !important;
-        flex-shrink: 0 !important;
-        display: inline-block !important;
-      }
-
-      .aboutthem-label {
-        font-size: 11px !important;
-        font-weight: 500 !important;
-        letter-spacing: 0.2em !important;
-        text-transform: uppercase !important;
-        color: #a8bcd6 !important;
-        white-space: nowrap !important;
-      }
-
-      .meaning {
-        font-family: Georgia, serif !important;
-        font-size: 20px !important;
-        font-weight: 400 !important;
-        line-height: 1.95 !important;
-        color: #ffffff !important;
-        text-align: center !important;
-        letter-spacing: 0.01em !important;
-        max-width: 720px !important;
-        width: 100% !important;
-      }
-
-      .meaning span {
-        color: #d4af37 !important;
-        font-weight: 500 !important;
-      }
-
-      .aboutthem-accent {
-        width: 44px !important;
-        height: 3px !important;
-        background: #d4af37 !important;
-        border-radius: 2px !important;
-        display: block !important;
-      }
-
-      /* ─── Laptop / Large Tablet (max 1024px) ─── */
-      @media (max-width: 1024px) {
-        .aboutthem {
-          padding: 4rem 2rem !important;
-        }
-        .meaning {
-          font-size: 19px !important;
-          line-height: 1.9 !important;
-          max-width: 640px !important;
-        }
-      }
-
-      /* ─── Tablet (max 768px) ─── */
-      @media (max-width: 768px) {
-        .aboutthem {
-          padding: 3.5rem 1.75rem !important;
-        }
-        .aboutthem-inner {
-          gap: 1.25rem !important;
-        }
-        .meaning {
-          font-size: 17px !important;
-          line-height: 1.85 !important;
-          text-align: center !important;
-          max-width: 100% !important;
-        }
-        .aboutthem-line-bar {
-          width: 30px !important;
-        }
-        .aboutthem-label {
-          font-size: 10px !important;
-          letter-spacing: 0.18em !important;
-        }
-      }
-
-      /* ─── Mobile (max 480px) ─── */
-      @media (max-width: 480px) {
-        .aboutthem {
-          padding: 2.75rem 1.25rem !important;
-        }
-        .aboutthem-inner {
-          gap: 1rem !important;
-        }
-        .meaning {
-          font-size: 15px !important;
-          line-height: 1.8 !important;
-          text-align: left !important;
-        }
-        .aboutthem-line {
-          gap: 10px !important;
-        }
-        .aboutthem-line-bar {
-          width: 22px !important;
-        }
-        .aboutthem-label {
-          font-size: 10px !important;
-          letter-spacing: 0.14em !important;
-        }
-        .aboutthem-accent {
-          width: 32px !important;
-          height: 2px !important;
-        }
-      }
-
-      /* ─── Small Mobile (max 360px) ─── */
-      @media (max-width: 360px) {
-        .aboutthem {
-          padding: 2.25rem 1rem !important;
-        }
-        .meaning {
-          font-size: 14px !important;
-          line-height: 1.75 !important;
-        }
-        .aboutthem-line-bar {
-          width: 16px !important;
-        }
-      }
-    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg ftco-navbar-light">
@@ -414,39 +80,50 @@
         </div>
       </div>
     </nav>
-    <div class="vm-wrap">
-      <div class="vm-row">
-        <div class="vm-head">
-          <span class="vm-badge">Who we aim to be</span>
-          <h2 class="vm-title">Our Vision</h2>
+    <section class="ftco-section bg-light">
+      <div class="rows justify-content-center">
+        <div
+          class="heading-section text-center mb-5"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <h2 class="mb-4 lower-shadow">OUR VISION</h2>
         </div>
-        <div class="vm-card">
-          <span class="vm-card-quote" aria-hidden="true">"</span>
-          <p class="vm-card-text">
+        <div
+          class="container-vision"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <h5 class="vision">
             To be the most trusted partner in financial management and
             compliance, inspiring individuals and businesses to achieve their
             goals through excellence, innovation, and above all integrity.
-          </p>
+          </h5>
         </div>
       </div>
-
-      <div class="vm-row">
-        <div class="vm-head">
-          <span class="vm-badge">What drives us</span>
-          <h2 class="vm-title">Our Mission</h2>
+      <div class="rows justify-content-center">
+        <div
+          class="heading-section text-center mb-5"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <h2 class="mb-4 lower-shadow">OUR MISSION</h2>
         </div>
-        <div class="vm-card">
-          <span class="vm-card-quote" aria-hidden="true">"</span>
-          <p class="vm-card-text">
+        <div
+          class="container-mission"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <h5 class="mission">
             Our mission is to provide excellent financial guidance and solutions
             customized based on each of our clients needs. We are committed to
             delivering relevant, and reliable services, always seizing
             opportunities to keep lasting relationships that are mutually
             beneficial and built on trust.
-          </p>
+          </h5>
         </div>
       </div>
-    </div>
+    </section>
     <section class="sliding">
       <h2 class="sliding-title">Casas San Luis & Co. is registered with:</h2>
 
@@ -536,6 +213,15 @@
               <div class="text text-center">
                 <h3 class="mb-2">Almelito Casas</h3>
                 <span class="position mb-2">Managing Parter</span>
+                <!-- <div class="faded">
+                <ul class="ftco-social text-center">
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>
+                </ul>
+                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+              </div> -->
               </div>
             </div>
           </div>
@@ -555,6 +241,15 @@
               <div class="text text-center">
                 <h3 class="mb-2" id="maam">Marivic San Luis</h3>
                 <span class="position mb-2">Treasurer / Partner </span>
+                <!-- <div class="faded">
+                <ul class="ftco-social text-center">
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>
+                </ul>
+                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+              </div> -->
               </div>
             </div>
           </div>
@@ -574,27 +269,27 @@
               <div class="text text-center">
                 <h3 class="mb-2">Juliver Buted</h3>
                 <span class="position mb-2">Partner</span>
+                <!-- <div class="faded">
+                <ul class="ftco-social text-center">
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>
+                  <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>
+                </ul>
+                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+              </div> -->
               </div>
             </div>
           </div>
         </div>
 
         <div class="aboutthem">
-          <div class="aboutthem-inner">
-            <div class="aboutthem-line">
-              <span class="aboutthem-line-bar"></span>
-              <span class="aboutthem-label">About us</span>
-              <span class="aboutthem-line-bar"></span>
-            </div>
-            <h2 class="meaning">
-              CS &amp; Co. is headed by
-              <span>Certified Public Accountants</span> with in-depth and
-              relevant experience in various functions, capacities and
-              organizations handling finance, accounting and administration in a
-              colorful career history spanning more than <span>20 years.</span>
-            </h2>
-            <div class="aboutthem-accent"></div>
-          </div>
+          <h1 class="meaning">
+            CS & Co. is headed by Certified Public Accountants with in-depth and
+            relevant experience in various functions, capacities and
+            organizations handling finance, accounting and administration in a
+            colorful career history spanning more than 20 years.
+          </h1>
         </div>
       </div>
       <div class="container">
@@ -849,124 +544,155 @@
         </div>
       </div>
     </div> -->
-
-    <footer class="csl-footer">
+    <footer
+      class="ftco-footer img"
+      style="background-image: url(images/bg_1.jpg)"
+    >
       <div class="overlay"></div>
-      <div class="csl-footer__container">
-        <div class="csl-footer__grid">
-          <!-- Brand & Contact -->
-          <div class="csl-footer__col">
-            <a href="#" class="csl-footer__brand-name"
-              >Casas San Luis &amp; Co.</a
-            >
-            <span class="csl-footer__brand-tagline"
-              >Certified &amp; Public Accountant</span
-            >
-            <ul class="csl-footer__contact-list">
-              <li>
-                <span class="icon fa fa-at"></span>
-                <a href="mailto:Casassanluisco.cpas@gmail.com"
-                  >Casassanluisco.cpas@gmail.com</a
-                >
-              </li>
-              <li>
-                <span class="icon fa fa-phone"></span>
-                <a href="tel:+639989810610">+63 998 981 0610</a>
-              </li>
-              <li>
-                <span class="icon fa fa-map-marker"></span>
-                <span
-                  >Unit 8E, 8F, Salcedo One Center, 170 Salcedo St. Legaspi
-                  Village, Makati City</span
-                >
-              </li>
-            </ul>
-            <ul class="csl-footer__social">
-              <li>
-                <a
-                  href="https://www.facebook.com/profile.php?id=61580388123399"
-                  target="_blank"
-                >
-                  <span class="fa fa-facebook"></span>
+      <div class="container-xl">
+        <div class="row mb-5 justify-content-between">
+          <div class="col-md-6 col-lg">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2 logo d-flex">
+                <a class="navbar-brand" href="#">
+                  <!-- Casas<small class="blks"> San Luis &amp; Co</small> -->
+                  Casas San Luis & Co.
+                  <span>Certified &amp;Public Accountant</span>
                 </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/search/results/all/?keywords=Casas%20San%20Luis%20%26%20Co."
-                  target="_blank"
-                >
-                  <span class="fa fa-linkedin"></span>
-                </a>
-              </li>
-            </ul>
+              </h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li>
+                    <a href="#"
+                      ><span class="icon fa fa-at"></span
+                      ><span class="text"
+                        >Casassanluisco.cpas@gmail.com</span
+                      ></a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="icon fa fa-phone"></span
+                      ><span class="text">+63998 981 0610</span></a
+                    >
+                  </li>
+                  <li>
+                    <span class="icon fa fa-map marker"></span
+                    ><span class="text"
+                      >Unit 8E, 8F, Salcedo One Center, 170 Salcedo St. Legaspi
+                      Village, Makati City</span
+                    >
+                  </li>
+                </ul>
+              </div>
+              <ul class="ftco-footer-social mt-4">
+                <li>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61580388123399"
+                    target="_blank"
+                    ><span class="fa fa-facebook"></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/search/results/all/?keywords=Casas%20San%20Luis%20%26%20Co.%20&origin=GLOBAL_SEARCH_HEADER&sid=%3A7s"
+                    target="_blank"
+                  >
+                    <span class="fa fa-linkedin"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Services</h2>
+              <div class="d-md-flex">
+                <ul class="list-unstyled w-100">
+                  <li>
+                    <a href="services.html"
+                      ><span class="ion ion-ios-arrow-round-forward me-2"></span
+                      >AUDIT</a
+                    >
+                  </li>
+                  <li>
+                    <a href="services.html"
+                      ><span class="ion ion-ios-arrow-round-forward me-2"></span
+                      >ACCOUNTING & BOOKKEEPING</a
+                    >
+                  </li>
+                  <li>
+                    <a href="services.html"
+                      ><span class="ion ion-ios-arrow-round-forward me-2"></span
+                      >TAX & SATUTORY COMPLIANCE</a
+                    >
+                  </li>
+                  <li>
+                    <a href="services.html"
+                      ><span class="ion ion-ios-arrow-round-forward me-2"></span
+                      >COMPANY REGISTRATION & LICENCES</a
+                    >
+                  </li>
+                </ul>
+                <ul class="list-unstyled w-100">
+                  <li>
+                    <a href="services.html"
+                      ><span class="ion ion-ios-arrow-round-forward me-2"></span
+                      >PAYROLL SERVICES</a
+                    >
+                  </li>
+                  <li>
+                    <a href="services.html"
+                      ><span class="ion ion-ios-arrow-round-forward me-2"></span
+                      >MANAGEMENT CONSULTANCY</a
+                    >
+                  </li>
+                  <!-- <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Risk Management</a></li>
+                      <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Technology Consulting</a></li> -->
+                </ul>
+              </div>
+            </div>
           </div>
 
-          <!-- Services -->
-          <div class="csl-footer__col">
-            <h2 class="csl-footer__heading">Services</h2>
-            <ul class="csl-footer__services">
-              <li>
-                <a href="services.html"><span class="arrow">›</span> Audit</a>
-              </li>
-              <li>
-                <a href="services.html"
-                  ><span class="arrow">›</span> Accounting &amp; Bookkeeping</a
-                >
-              </li>
-              <li>
-                <a href="services.html"
-                  ><span class="arrow">›</span> Tax &amp; Statutory
-                  Compliance</a
-                >
-              </li>
-              <li>
-                <a href="services.html"
-                  ><span class="arrow">›</span> Company Registration &amp;
-                  Licences</a
-                >
-              </li>
-              <li>
-                <a href="services.html"
-                  ><span class="arrow">›</span> Payroll Services</a
-                >
-              </li>
-              <li>
-                <a href="services.html"
-                  ><span class="arrow">›</span> Management Consultancy</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- FAQ -->
-          <div class="csl-footer__col">
-            <h2 class="csl-footer__heading">Have a Question?</h2>
-            <a href="fqs.html" class="csl-footer__faq-link">
-              <span class="arrow">›</span> Ask us a question
-            </a>
+          <div class="col-md-6 col-lg" id="footer">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Have a Questions?</h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li>
+                    <span class="ion ion-ios-arrow-round-forward me-2"></span
+                    ><span class="text">Ask us a Questions</span>
+                  </li>
+                  <!-- <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text"><span class="__cf_email__" data-cfemail="6e070008012e17011b1c0a01030f0700400d0103">[email&#160;protected]</span></span></a></li> -->
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Bottom Bar -->
-      <div class="csl-footer__bottom">
-        <p>
-          Copyright &copy; <span id="csl-footer-year"></span>
-          All rights reserved by
-          <a href="index.html">Casas San Luis &amp; Co.</a>
-        </p>
+      <div class="container-fluid px-0 py-5 bg-darken">
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p class="mb-0" style="font-size: larger">
+                Copyright &copy;
+                <script
+                  data-cfasync="false"
+                  src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+                ></script>
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                All rights reserved by
+                <a href="index.html" target="_blank" rel="nofollow noopener"
+                  >CASAS SAN LUIS & CO.</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
-    <script>
-      gtag("config", "UA-23581568-13");
-      // Auto-update copyright year
-      document.addEventListener("DOMContentLoaded", function () {
-        const yearEl = document.getElementById("csl-footer-year");
-        if (yearEl) {
-          yearEl.textContent = new Date().getFullYear();
-        }
-      });
-    </script>
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/tiny-slider.js"></script>
@@ -1019,34 +745,6 @@
       // Run on scroll and page load
       window.addEventListener("scroll", animateOnScroll);
       window.addEventListener("load", animateOnScroll);
-      const rows = document.querySelectorAll(".vm-row");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-              setTimeout(
-                () => entry.target.classList.add("vm-visible"),
-                i * 200,
-              );
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 },
-      );
-
-      rows.forEach((r) => observer.observe(r));
-      const el = document.querySelector(".aboutthem-inner");
-      const obs = new IntersectionObserver(
-        ([e]) => {
-          if (e.isIntersecting) {
-            el.classList.add("at-visible");
-            obs.unobserve(el);
-          }
-        },
-        { threshold: 0.2 },
-      );
-      obs.observe(el);
     </script>
 
     <script
