@@ -134,18 +134,9 @@ td ul li {
   --bs-danger: #294169;
   --bs-light: #294169;
   --bs-dark: #294169;
-  --bs-font-sans-serif:
-    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace:
-    SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-    monospace;
-  --bs-gradient: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.15),
-    rgba(255, 255, 255, 0)
-  );
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
 
 *,
@@ -327,7 +318,6 @@ sup {
 
 a {
   color: #0d6efd;
-  text-decoration: underline;
 }
 a:hover {
   color: #0a58ca;
@@ -717,25 +707,10 @@ progress {
 .table > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;
   background-color: var(--bs-table-bg);
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(var(--bs-table-accent-bg)),
-    to(var(--bs-table-accent-bg))
-  );
-  background-image: -webkit-linear-gradient(
-    var(--bs-table-accent-bg),
-    var(--bs-table-accent-bg)
-  );
-  background-image: -o-linear-gradient(
-    var(--bs-table-accent-bg),
-    var(--bs-table-accent-bg)
-  );
-  background-image: linear-gradient(
-    var(--bs-table-accent-bg),
-    var(--bs-table-accent-bg)
-  );
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--bs-table-accent-bg)), to(var(--bs-table-accent-bg)));
+  background-image: -webkit-linear-gradient(var(--bs-table-accent-bg), var(--bs-table-accent-bg));
+  background-image: -o-linear-gradient(var(--bs-table-accent-bg), var(--bs-table-accent-bg));
+  background-image: linear-gradient(var(--bs-table-accent-bg), var(--bs-table-accent-bg));
   border-bottom-width: 1px;
 }
 .table > :not(:last-child) > :last-child > * {
@@ -1319,7 +1294,7 @@ textarea.form-control {
   .navbar-nav {
     justify-content: center;
     border-bottom: 1px solid white;
-    background: rgba(255, 255, 255, 0.25);
+    background: #294169;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
@@ -1327,6 +1302,18 @@ textarea.form-control {
     border: 1px solid rgba(255, 255, 255, 0.3);
     width: 100px;
     justify-content: center;
+  }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .navbar-nav {
+    justify-content: center;
+    background: #294169;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100px;
   }
 }
 .navbar-nav {
@@ -2330,7 +2317,6 @@ h5,
 @media (max-width: 991.98px) {
   .ftco-navbar-light .navbar-nav {
     padding-top: 20px;
-    padding-bottom: 20px;
   }
 }
 .ftco-navbar-light .navbar-toggler {
@@ -2345,6 +2331,39 @@ h5,
   -ms-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
+/* Nav links — slide in from left on page load */
+.ftco-navbar-light .navbar-nav .nav-item {
+  opacity: 0;
+  animation: slideInText 0.5s ease forwards;
+}
+
+/* Each item mag-aantay ng konti bago mag-appear — staggered effect */
+.ftco-navbar-light .navbar-nav .nav-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.ftco-navbar-light .navbar-nav .nav-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.ftco-navbar-light .navbar-nav .nav-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.ftco-navbar-light .navbar-nav .nav-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.ftco-navbar-light .navbar-nav .nav-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+@keyframes slideInText {
+  from {
+    opacity: 0;
+    transform: translateX(-30px); /* galing kaliwa */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
   font-size: 15px;
   padding-top: 1.7rem;
@@ -2352,7 +2371,7 @@ h5,
   padding-left: 25px;
   padding-right: 25px;
   color: rgba(0, 0, 0, 0.8);
-  font-weight: 400;
+  font-weight: bold;
 }
 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link span {
   position: relative;
@@ -3398,43 +3417,18 @@ textarea.form-control {
 .testimony-section .tns-nav > .tns-nav-active {
   background: #4f86f9;
 }
-.testimony-section
-  .tns-item:not(.tns-slide-active)
-  + .tns-slide-active
-  + .tns-slide-active
-  .testimony-wrap {
+.testimony-section .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active .testimony-wrap {
   background: #4f86f9;
   color: rgba(255, 255, 255, 0.9);
 }
-.testimony-section
-  .tns-item:not(.tns-slide-active)
-  + .tns-slide-active
-  + .tns-slide-active
-  .testimony-wrap
-  .icon {
+.testimony-section .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active .testimony-wrap .icon {
   background: #f9faff;
 }
-.testimony-section
-  .tns-item:not(.tns-slide-active)
-  + .tns-slide-active
-  + .tns-slide-active
-  .testimony-wrap
-  .icon
-  span {
+.testimony-section .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active .testimony-wrap .icon span {
   color: #4f86f9;
 }
-.testimony-section
-  .tns-item:not(.tns-slide-active)
-  + .tns-slide-active
-  + .tns-slide-active
-  .testimony-wrap
-  .name,
-.testimony-section
-  .tns-item:not(.tns-slide-active)
-  + .tns-slide-active
-  + .tns-slide-active
-  .testimony-wrap
-  .position {
+.testimony-section .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active .testimony-wrap .name,
+.testimony-section .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active .testimony-wrap .position {
   color: #fff;
 }
 

@@ -1201,7 +1201,7 @@ textarea.form-control {
   .navbar-nav {
     justify-content: center;
     border-bottom: 1px solid white;
-    background: rgba(255, 255, 255, 0.25);
+    background: #294169;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
@@ -1211,6 +1211,20 @@ textarea.form-control {
     justify-content: center;
   }
 }
+/* Large phones / small tablets (769px - 991px) */
+@media (min-width: 769px) and (max-width: 991px) {
+  .navbar-nav {
+    justify-content: center;
+    background: #294169;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100px;
+  }
+}
+
 .navbar-nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2228,7 +2242,6 @@ h5,
 @media (max-width: 991.98px) {
   .ftco-navbar-light .navbar-nav {
     padding-top: 20px;
-    padding-bottom: 20px;
   }
 }
 .ftco-navbar-light .navbar-nav .dropdown:hover .dropdown-menu {

@@ -190,11 +190,11 @@
 
 /* Bottom Bar */
 .csl-footer__bottom {
-  background: rgb(0, 0, 0) !important;
+  background: white !important;
   padding: 18px 24px !important;
   text-align: center !important;
   font-size: 13px !important;
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 
 .csl-footer__bottom a {

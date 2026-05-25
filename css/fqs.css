@@ -24,7 +24,6 @@
 /* Target all navbar links inside the ul */
 /* Ensure we target the navbar links specifically */
 .navbar-nav .nav-link:hover {
-  text-decoration: underline;
   color: #2575fc !important; /* force the color to change */
   transition:
     color 0.3s,
