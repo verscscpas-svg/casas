@@ -81,14 +81,14 @@ try {
   $mail->isSMTP();
   $mail->Host       = 'smtp.gmail.com';
   $mail->SMTPAuth   = true;
-  $mail->Username   = 'vers.cscpas@gmail.com';
-  $mail->Password   = 'elrm feaj vilb idfs'; // Gmail App Password
+  $mail->Username   = 'web.casassanluis@gmail.com';
+  $mail->Password   = 'ngfl xypp xkio zpwg'; // Gmail App Password
   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
   $mail->Port       = 587;
 
   // Email headers
-  $mail->setFrom('vers.cscpas@gmail.com', $name . ' via Contact Form');
-  $mail->addAddress('vers.cscpas@gmail.com');
+  $mail->setFrom($email, $name . ' via Contact Form');
+  $mail->addAddress('web.casassanluis@gmail.com');
   $mail->addReplyTo($email, $name);
   $mail->addEmbeddedImage(__DIR__ . '/CSL&CO.png', 'company_logo');
 
