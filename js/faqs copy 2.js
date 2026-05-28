@@ -27,15 +27,6 @@ function showCustomAlert({ type = "success", title = "", text = "", duration = 3
       fill.style.transition = `width ${duration}ms linear`;
       fill.style.width = "0%";
     });
-  } else if (type === "warning") {
-    stripe.className = "ca-stripe error";
-    ring.className = "ca-icon-ring error";
-    icon.setAttribute("stroke", "#e08c00");
-    icon.innerHTML = '<line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>';
-    label.className = "ca-label error";
-    label.textContent = "Rate limit reached";
-    btn.className = "error";
-    timerBar.style.display = "none";
   } else {
     stripe.className = "ca-stripe error";
     ring.className = "ca-icon-ring error";
@@ -113,42 +104,27 @@ document.addEventListener("DOMContentLoaded", function () {
     responseDiv.innerHTML = "";
 
     fetch(form.action, { method: "POST", body: new FormData(form) })
-      .then((res) => res.json())
+      .then((res) => res.text())
       .then((data) => {
         submittingDiv.style.display = "none";
         submitBtn.disabled = false;
         submitBtn.value = "Send Message";
 
-        if (data.success) {
+        if (data.toLowerCase().includes("message sent successfully")) {
           form.reset();
           if (typeof grecaptcha !== "undefined") grecaptcha.reset();
-          form.dataset.submitted = "false";
 
+          // ✅ Custom success alert
           showCustomAlert({
             type: "success",
             title: "Message Sent!",
-            text: data.message,
+            text: "Your message was sent successfully. We'll get back to you soon.",
             duration: 6000,
             onClose: () => location.reload(),
           });
-        } else if (data.code === 429) {
-          form.dataset.submitted = "false";
-          if (typeof grecaptcha !== "undefined") grecaptcha.reset();
-
-          showCustomAlert({
-            type: "warning",
-            title: "Slow down!",
-            text: data.message,
-          });
         } else {
+          responseDiv.innerHTML = data;
           form.dataset.submitted = "false";
-          if (typeof grecaptcha !== "undefined") grecaptcha.reset();
-
-          showCustomAlert({
-            type: "error",
-            title: "Failed to send",
-            text: data.message,
-          });
         }
       })
       .catch((err) => {
@@ -158,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
         form.dataset.submitted = "false";
         console.error(err);
 
+        // ❌ Custom error alert
         showCustomAlert({
           type: "error",
           title: "Something went wrong",

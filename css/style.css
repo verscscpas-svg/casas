@@ -1148,6 +1148,11 @@ textarea.form-control {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   height: 70px;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 .navbar > .container,
 .navbar > .container-fluid,

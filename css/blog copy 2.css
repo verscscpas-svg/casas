@@ -19,6 +19,11 @@
 }
 
 body {
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
   background: #f4f2ee;
   color: #1a1a1a;
   line-height: 1.7;
@@ -51,7 +56,6 @@ body {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 18px;
-  color: white;
 }
 
 .cb-hero p {
@@ -76,13 +80,13 @@ body {
 .cb-sec-hdr h2 {
   font-size: 1.9rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #111;
   margin-bottom: 8px;
 }
 
 .cb-sec-hdr p {
   font-size: 1rem;
-  color: #ffffff;
+  color: #666;
 }
 
 .cb-divider {

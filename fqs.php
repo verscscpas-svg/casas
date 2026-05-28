@@ -23,17 +23,7 @@
   <link rel="stylesheet" href="css/fqs.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="shortcut icon" href="imagess/cslogos.png" type="image/x-icon" />
-  <style>
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
 
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -88,7 +78,7 @@
                     <br />
                     Contact us
                   </h3>
-                  <p class="mb-4">We're open for any suggestion or just to have a chat</p>
+                  <p class="pppp">Please fill out the form below </p>
 
                   <form id="contactForm" name="contactForm" class="contactForm" action="processes/process_contact.php" method="POST">
                     <div class="row">
@@ -119,10 +109,23 @@
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
-                          <input type="submit" value="Send Message" class="btn btn-primary" />
+                          <!-- <input type="submit" value="Send Message" class="btn btn-primary" />
                           <div class="submitting" style="display: none; text-align: center; margin-top: 10px">
                             <div class="spinner" style="border: 4px solid #f3f3f3; border-top: 4px solid #007bff; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 0 auto"></div>
                             <p>Sending message...</p>
+                          </div> -->
+                          <input type="submit" value="Submit Message" class="btn btn-primary" />
+                          <div class="submitting">
+                            <div class="submit-spinner">
+                              <span class="spinner-ring"></span>
+                              <span class="spinner-ring spinner-ring--delay"></span>
+                            </div>
+                            <p class="submitting-text">Sending message...</p>
+                          </div>
+                          <div class="dot-row">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
                           </div>
                           <div class="form-response" style="margin-top: 10px"></div>
                         </div>
@@ -142,7 +145,24 @@
       </div>
     </div>
   </section>
-
+  <div id="custom-alert-overlay">
+    <div id="custom-alert-box">
+      <div class="ca-stripe" id="ca-stripe"></div>
+      <div class="ca-corner-tl"></div>
+      <div class="ca-corner-br"></div>
+      <div class="ca-icon-ring" id="ca-ring">
+        <svg id="ca-icon" width="34" height="34" viewBox="0 0 24 24" fill="none"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></svg>
+      </div>
+      <div class="ca-label" id="ca-label"></div>
+      <h2 id="custom-alert-title"></h2>
+      <p id="custom-alert-text"></p>
+      <div id="custom-alert-timer-bar">
+        <div id="custom-alert-timer-fill"></div>
+      </div>
+      <button id="custom-alert-btn">OK</button>
+    </div>
+  </div>
   <br />
   <br />
   <br />
@@ -251,6 +271,8 @@
   </footer>
   <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/tiny-slider.js"></script>
   <script src="js/glightbox.min.js"></script>
   <script src="js/aos.js"></script>

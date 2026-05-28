@@ -20,18 +20,9 @@
   --bs-danger: #294169;
   --bs-light: #294169;
   --bs-dark: #294169;
-  --bs-font-sans-serif:
-    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace:
-    SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-    monospace;
-  --bs-gradient: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.15),
-    rgba(255, 255, 255, 0)
-  );
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
 * {
   margin: 0;
@@ -50,18 +41,6 @@
   :root {
     scroll-behavior: smooth;
   }
-}
-
-body {
-  margin: 0;
-  /* font-family: var(--bs-font-sans-serif); */
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -604,25 +583,10 @@ progress {
 .table > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;
   background-color: var(--bs-table-bg);
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(var(--bs-table-accent-bg)),
-    to(var(--bs-table-accent-bg))
-  );
-  background-image: -webkit-linear-gradient(
-    var(--bs-table-accent-bg),
-    var(--bs-table-accent-bg)
-  );
-  background-image: -o-linear-gradient(
-    var(--bs-table-accent-bg),
-    var(--bs-table-accent-bg)
-  );
-  background-image: linear-gradient(
-    var(--bs-table-accent-bg),
-    var(--bs-table-accent-bg)
-  );
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--bs-table-accent-bg)), to(var(--bs-table-accent-bg)));
+  background-image: -webkit-linear-gradient(var(--bs-table-accent-bg), var(--bs-table-accent-bg));
+  background-image: -o-linear-gradient(var(--bs-table-accent-bg), var(--bs-table-accent-bg));
+  background-image: linear-gradient(var(--bs-table-accent-bg), var(--bs-table-accent-bg));
   border-bottom-width: 1px;
 }
 .table > :not(:last-child) > :last-child > * {
@@ -1172,6 +1136,11 @@ textarea.form-control {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   height: 70px;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 .navbar > .container,
 .navbar > .container-fluid,
@@ -3302,43 +3271,18 @@ textarea.form-control {
 .testimony-section .tns-nav > .tns-nav-active {
   background: #4f86f9;
 }
-.testimony-section
-  .tns-item:not(.tns-slide-active)
-  + .tns-slide-active
-  + .tns-slide-active
-  .testimony-wrap {
+.testimony-section .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active .testimony-wrap {
   background: #4f86f9;
   color: rgba(255, 255, 255, 0.9);
 }
-.testimony-section
-  .tns-item:not(.tns-slide-active)
-  + .tns-slide-active
-  + .tns-slide-active
-  .testimony-wrap
-  .icon {
+.testimony-section .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active .testimony-wrap .icon {
   background: #f9faff;
 }
-.testimony-section
-  .tns-item:not(.tns-slide-active)
-  + .tns-slide-active
-  + .tns-slide-active
-  .testimony-wrap
-  .icon
-  span {
+.testimony-section .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active .testimony-wrap .icon span {
   color: #4f86f9;
 }
-.testimony-section
-  .tns-item:not(.tns-slide-active)
-  + .tns-slide-active
-  + .tns-slide-active
-  .testimony-wrap
-  .name,
-.testimony-section
-  .tns-item:not(.tns-slide-active)
-  + .tns-slide-active
-  + .tns-slide-active
-  .testimony-wrap
-  .position {
+.testimony-section .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active .testimony-wrap .name,
+.testimony-section .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active .testimony-wrap .position {
   color: #fff;
 }
 
