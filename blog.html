@@ -1,11 +1,22 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Casas San Luis & Co.</title>
+    <title>Blog | Casas San Luis & Co. - Accounting Tips & Financial Insights</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Read the latest accounting tips, tax updates, and financial insights from Casas San Luis & Co. Stay informed with expert advice from our Certified Public Accountants in Makati, Philippines." />
+    <meta name="keywords" content="accounting blog Philippines, tax tips BIR, bookkeeping advice, CPA insights Makati, financial tips Philippines, Casas San Luis blog" />
+    <link rel="canonical" href="https://www.casassanluisco.com/blog.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog | Casas San Luis & Co. - Accounting Tips & Financial Insights" />
+    <meta property="og:description" content="Read the latest accounting tips, tax updates, and financial insights from Casas San Luis & Co. Stay informed with expert advice from our Certified Public Accountants in Makati, Philippines." />
+    <meta property="og:url" content="https://www.casassanluisco.com/blog.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.casassanluisco.com/imagess/cslogos.png" />
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -24,6 +35,89 @@
     <link rel="stylesheet" href="css/blog.css" />
     <link rel="stylesheet" href="css/forblog.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <style>
+      /* Lightbox Overlay */
+      .cb-lightbox-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .cb-lightbox-overlay.active {
+        display: flex;
+      }
+
+      .cb-lightbox-img {
+        max-width: 90vw;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 4px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+        transition: opacity 0.2s ease;
+      }
+
+      .cb-lightbox-close {
+        position: fixed;
+        top: 18px;
+        right: 24px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 36px;
+        line-height: 1;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+        z-index: 10000;
+      }
+
+      .cb-lightbox-close:hover {
+        opacity: 1;
+      }
+
+      .cb-lightbox-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.12);
+        border: none;
+        color: #fff;
+        font-size: 28px;
+        padding: 12px 18px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.2s;
+        z-index: 10000;
+      }
+
+      .cb-lightbox-nav:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      .cb-lightbox-nav.prev {
+        left: 16px;
+      }
+      .cb-lightbox-nav.next {
+        right: 16px;
+      }
+
+      .cb-lightbox-counter {
+        margin-top: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 13px;
+        letter-spacing: 0.5px;
+      }
+
+      /* Cursor pointer sa carousel images */
+      .cb-carousel-track img {
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg ftco-navbar-light">
@@ -51,7 +145,7 @@
               <a class="nav-link" href="about.html" style="font-weight: bold; color: black">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="fqs.html" style="font-weight: bold; color: black">FQ's</a>
+              <a class="nav-link" href="fqs.php" style="font-weight: bold; color: black">FQ's</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="blog.html" style="font-weight: bold; color: #4f86f9">Blog's</a>
@@ -118,8 +212,6 @@
           <div class="cb-carousel" id="carousel-1">
             <div class="cb-carousel-track" id="track-1">
               <img src="imagess/blog/outreach/5.jpg" alt="Team Building Event 1" onclick="cbOpenLightbox('carousel-1')" />
-
-              <img src="imagess/blog/outreach/4.jpg" alt="Team Building Event 2" onclick="cbOpenLightbox('carousel-1')" />
 
               <img src="imagess/blog/outreach/707153148_1295939756076683_7614553030348059471_n.jpg" alt="Team Building Event 3" onclick="cbOpenLightbox('carousel-1')" />
 
@@ -193,7 +285,7 @@
               </li>
               <li>
                 <span class="icon fa fa-phone"></span>
-                <a href="tel:+639989810610">+63 998 981 0610</a>
+                <a href="tel:+639989810610">(2) 8559-8685</a>
               </li>
               <li>
                 <span class="icon fa fa-map-marker"></span>
@@ -260,7 +352,7 @@
           <!-- FAQ -->
           <div class="csl-footer__col">
             <h2 class="csl-footer__heading">Have a Question?</h2>
-            <a href="fqs.html" class="csl-footer__faq-link">
+            <a href="fqs.php" class="csl-footer__faq-link">
               <span class="arrow">›</span>
               Ask us a question
             </a>
@@ -446,7 +538,7 @@
         if (e.key === "Escape") cbCloseLightbox();
       });
     </script> -->
-    <script>
+    <!-- <script>
       let cbCurrentCarousel = null;
       let cbCurrentIndex = 0;
       let cbImages = [];
@@ -539,6 +631,183 @@
           dot.classList.toggle("active", i === index);
         });
       }
+      (function () {
+        /* ── Build lightbox DOM once ── */
+        const overlay = document.createElement("div");
+        overlay.className = "cb-lightbox-overlay";
+        overlay.innerHTML = `
+    <button class="cb-lightbox-close" aria-label="Close">&times;</button>
+    <button class="cb-lightbox-nav prev" aria-label="Previous">&#8592;</button>
+    <img class="cb-lightbox-img" src="" alt="" />
+    <button class="cb-lightbox-nav next" aria-label="Next">&#8594;</button>
+    <div class="cb-lightbox-counter"></div>
+  `;
+        document.body.appendChild(overlay);
+
+        const lbImg = overlay.querySelector(".cb-lightbox-img");
+        const lbCounter = overlay.querySelector(".cb-lightbox-counter");
+        const lbClose = overlay.querySelector(".cb-lightbox-close");
+        const lbPrev = overlay.querySelector(".cb-lightbox-nav.prev");
+        const lbNext = overlay.querySelector(".cb-lightbox-nav.next");
+
+        let images = [];
+        let current = 0;
+
+        /* ── Open / close helpers ── */
+        function openLightbox(carouselId, startIndex = 0) {
+          const track = document.querySelector(`#${carouselId} .cb-carousel-track`);
+          images = Array.from(track.querySelectorAll("img"));
+          current = startIndex;
+          show();
+          overlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+          overlay.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        function show() {
+          lbImg.src = images[current].src;
+          lbImg.alt = images[current].alt;
+          lbCounter.textContent = `${current + 1} / ${images.length}`;
+          lbPrev.style.display = images.length <= 1 ? "none" : "";
+          lbNext.style.display = images.length <= 1 ? "none" : "";
+        }
+
+        function prev() {
+          current = (current - 1 + images.length) % images.length;
+          show();
+        }
+        function next() {
+          current = (current + 1) % images.length;
+          show();
+        }
+
+        /* ── Event listeners ── */
+        lbClose.addEventListener("click", closeLightbox);
+        lbPrev.addEventListener("click", prev);
+        lbNext.addEventListener("click", next);
+
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) closeLightbox();
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (!overlay.classList.contains("active")) return;
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowLeft") prev();
+          if (e.key === "ArrowRight") next();
+        });
+
+        /* ── Wire up carousel images ── */
+        function wireCarousels() {
+          document.querySelectorAll(".cb-carousel").forEach(function (carousel) {
+            const id = carousel.id;
+            carousel.querySelectorAll(".cb-carousel-track img").forEach(function (img, idx) {
+              img.addEventListener("click", function () {
+                openLightbox(id, idx);
+              });
+            });
+          });
+        }
+
+        /* Remove the old inline onclick and use event listeners instead */
+        document.querySelectorAll(".cb-carousel-track img").forEach(function (img) {
+          img.removeAttribute("onclick");
+        });
+
+        wireCarousels();
+
+        /* Expose globally in case needed */
+        window.cbOpenLightbox = openLightbox;
+      })();
+    </script> -->
+    <script>
+      const carouselState = {};
+
+      function moveCarousel(carouselId, direction) {
+        const carousel = document.getElementById(carouselId);
+        const track = carousel.querySelector(".cb-carousel-track");
+        const total = track.querySelectorAll("img").length;
+
+        if (!carouselState[carouselId]) carouselState[carouselId] = 0;
+        carouselState[carouselId] = (carouselState[carouselId] + direction + total) % total;
+        updateCarousel(carouselId);
+      }
+
+      function goToSlide(carouselId, index) {
+        carouselState[carouselId] = index;
+        updateCarousel(carouselId);
+      }
+
+      function updateCarousel(carouselId) {
+        const carousel = document.getElementById(carouselId);
+        const track = carousel.querySelector(".cb-carousel-track");
+        const dots = carousel.querySelectorAll(".cb-carousel-dot");
+        const index = carouselState[carouselId] || 0;
+
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+      }
+
+      // ── Lightbox ──
+      const overlay = document.createElement("div");
+      overlay.className = "cb-lightbox-overlay";
+      overlay.innerHTML = `
+    <button class="cb-lightbox-close" aria-label="Close">&times;</button>
+    <button class="cb-lightbox-nav prev" aria-label="Previous">&#8592;</button>
+    <img class="cb-lightbox-img" src="" alt="" />
+    <button class="cb-lightbox-nav next" aria-label="Next">&#8594;</button>
+    <div class="cb-lightbox-counter"></div>
+  `;
+      document.body.appendChild(overlay);
+
+      const lbImg = overlay.querySelector(".cb-lightbox-img");
+      const lbCounter = overlay.querySelector(".cb-lightbox-counter");
+
+      let lbImages = [],
+        lbCurrent = 0;
+
+      function cbOpenLightbox(carouselId) {
+        const track = document.querySelector(`#${carouselId} .cb-carousel-track`);
+        lbImages = Array.from(track.querySelectorAll("img"));
+        lbCurrent = carouselState[carouselId] || 0;
+        lbShow();
+        overlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function lbClose() {
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      function lbShow() {
+        lbImg.src = lbImages[lbCurrent].src;
+        lbImg.alt = lbImages[lbCurrent].alt;
+        lbCounter.textContent = `${lbCurrent + 1} / ${lbImages.length}`;
+      }
+
+      function lbMove(dir) {
+        lbCurrent = (lbCurrent + dir + lbImages.length) % lbImages.length;
+        lbShow();
+      }
+
+      overlay.querySelector(".cb-lightbox-close").addEventListener("click", lbClose);
+      overlay.querySelector(".cb-lightbox-nav.prev").addEventListener("click", () => lbMove(-1));
+      overlay.querySelector(".cb-lightbox-nav.next").addEventListener("click", () => lbMove(1));
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) lbClose();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!overlay.classList.contains("active")) return;
+        if (e.key === "Escape") lbClose();
+        if (e.key === "ArrowLeft") lbMove(-1);
+        if (e.key === "ArrowRight") lbMove(1);
+      });
     </script>
   </body>
 </html>

@@ -37,6 +37,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   min-width: 900px;
+  font-family: monospace;
 }
 
 thead {
@@ -63,7 +64,7 @@ td ul {
 }
 
 td ul li {
-  list-style: "✓  ";
+  list-style: "✓";
   margin-bottom: 6px;
 }
 

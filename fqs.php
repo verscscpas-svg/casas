@@ -2,9 +2,21 @@
 <html lang="en">
 
 <head>
-  <title>Casas San Luis & Co.</title>
+  <title>FAQs | Casas San Luis & Co. - Accounting Services in Makati</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Have questions about accounting, tax filing, audit, or payroll services? Contact Casas San Luis & Co., your trusted Certified Public Accountants in Makati City, Philippines." />
+  <meta name="keywords" content="accounting firm Makati, CPA Philippines, tax filing, bookkeeping, payroll services, BIR compliance, audit, Casas San Luis" />
+  <link rel="canonical" href="https://www.casassanluisco.com/fqs.php" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="FAQs | Casas San Luis & Co. - Accounting & CPA Services in Makati" />
+  <meta property="og:description" content="Have questions about accounting, tax filing, audit, or payroll services? Contact Casas San Luis & Co., your trusted Certified Public Accountants in Makati City, Philippines." />
+  <meta property="og:url" content="https://www.casassanluisco.com/fqs.php" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.casassanluisco.com/imagess/cslogos.png" />
 
   <link rel="preconnect" href="https://fonts.gstatic.com/" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
@@ -53,7 +65,7 @@
             <a class="nav-link" href="about.html">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="fqs.html">FQ's</a>
+            <a class="nav-link active" href="fqs.php">FQ's</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="blog.html">Blog's</a>
@@ -184,7 +196,7 @@
             </li>
             <li>
               <span class="icon fa fa-phone"></span>
-              <a href="tel:+639989810610">+63 998 981 0610</a>
+              <a href="tel:+639989810610">(2) 8559-8685</a>
             </li>
             <li>
               <span class="icon fa fa-map-marker"></span>
@@ -251,7 +263,7 @@
         <!-- FAQ -->
         <div class="csl-footer__col">
           <h2 class="csl-footer__heading">Have a Question?</h2>
-          <a href="fqs.html" class="csl-footer__faq-link">
+          <a href="fqs.php" class="csl-footer__faq-link">
             <span class="arrow">›</span>
             Ask us a question
           </a>
