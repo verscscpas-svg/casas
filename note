@@ -1,0 +1,2 @@
+git config --global user.email "vers.cscpas@gmail.com"
+  git config --global user.name "vers"

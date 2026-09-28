@@ -1,0 +1,122 @@
+/* Step 1: I-declare ang font */
+@font-face {
+  font-family: "YourFontName";
+  src: url("fonts/Morhena\ Italic.otf Risk.ttf") format("truetype");
+  /* or .woff / .woff2 */
+}
+
+/* Step 2: Gamitin sa td */
+td {
+  text-transform: uppercase;
+  font-family: "YourFontName", sans-serif;
+  font-weight: bold;
+}
+.content {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.top-buttons {
+  margin-bottom: 20px;
+}
+.user {
+  text-transform: capitalize;
+}
+.top-buttons button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.top-buttons button:hover {
+  background-color: #2980b9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  /* From https://css.glass */
+  background: rgba(247, 250, 255, 0.33);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(19.2px);
+  -webkit-backdrop-filter: blur(19.2px);
+  border: 1px solid rgba(247, 250, 255, 1);
+}
+
+table th,
+table td {
+  border: 1px solid #a7baeebb;
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  background-color: #f4f4f4;
+}
+
+.view-btn {
+  padding: 5px 10px;
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background-color: #27ae60;
+}
+
+table th:first-child,
+table td:first-child {
+  width: 80px;
+  white-space: nowrap;
+}
+/* <!-- CSS for logout button + modal animation -- > */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% - 2rem);
+  margin: auto 1rem 1.25rem;
+  padding: 11px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e05252;
+  background: #fff3f3;
+  border: 1px solid #f5c0c0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.logout-btn:hover {
+  background: #ffe5e5;
+  border-color: #e05252;
+}
+
+#logoutOverlay.show {
+  display: flex !important;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

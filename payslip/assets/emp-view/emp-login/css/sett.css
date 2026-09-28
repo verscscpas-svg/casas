@@ -1,0 +1,360 @@
+/* ─── RESET & UNIVERSAL BOXING ─── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  color: #333;
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── SIDEBAR & LOGOUT SYSTEM ─── */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  /* Nakatago default sa mobile */
+  width: 260px;
+  height: 100vh;
+  background: #1a2a44;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar.active {
+  left: 0;
+  /* Lumalabas kapag pinindot ang toggle button */
+}
+
+#sidebarOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.sidebar.active #sidebarOverlay {
+  display: block;
+}
+
+.topbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.compname {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sidebar .list {
+  list-style: none;
+  padding: 15px 0;
+  flex-grow: 1;
+}
+
+.sidebar .list li {
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: #fff;
+  transition:
+    background 0.2s,
+    border-left 0.1s;
+}
+
+.sidebar .list li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 4px solid #e05252;
+}
+
+.sidebar .list li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.logout-btn {
+  margin: 20px;
+  padding: 12px;
+  background: #e05252;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #c84343;
+}
+
+/* ─── MAIN APP CONTENT NAVIGATION ─── */
+.main {
+  flex-grow: 1;
+  width: 100%;
+  transition: padding-left 0.3s ease;
+}
+
+.navbar {
+  background: #fff;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+.navbar .toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #1a2a44;
+}
+
+.nav {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a2a44;
+}
+
+.user {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.content {
+  padding: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ─── DYNAMIC FORM STYLING ─── */
+.add-form {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(41, 65, 105, 0.06);
+}
+
+.add-form h3 {
+  font-size: 18px;
+  color: #1a2a44;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f2f5;
+  padding-bottom: 10px;
+}
+
+/* Flex layout para gawing grid system ang mga elements */
+.add-form form {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* 1 column lang sa mobile phone */
+  gap: 16px;
+}
+
+/* Form Groups styling */
+.add-form form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Universal Label at Input Styling */
+.add-form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a5d78;
+}
+
+.add-form input[type="text"],
+.add-form input[type="email"],
+.add-form input[type="number"],
+.add-form select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #dde3f0;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+/* Kapag active/focused ang input element */
+.add-form input:focus,
+.add-form select:focus {
+  outline: none;
+  border-color: #6b84aa;
+  box-shadow: 0 0 0 3px rgba(107, 132, 170, 0.15);
+}
+
+/* Disabled styling para sa mga fields na bawal i-edit ng employee */
+.add-form input:disabled,
+.add-form select:disabled {
+  background-color: #f5f7fb;
+  color: #7a8ba3;
+  cursor: not-allowed;
+  border-color: #e6ebf5;
+}
+
+/* Helper message label text below inputs */
+.add-form small {
+  font-size: 11px;
+  color: #e05252;
+  margin-top: 2px;
+}
+
+/* ─── FILE & IMAGE DISPLAY SYSTEM ─── */
+.file-input {
+  align-items: center !important;
+  text-align: center;
+  background: #fafbfc;
+  border: 1px dashed #dde3f0;
+  border-radius: 10px;
+  padding: 15px;
+  transition: background 0.2s;
+}
+
+.file-input:hover {
+  background: #f4f6f9;
+}
+
+.file-input img {
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+
+.file-input img:hover {
+  transform: scale(1.03);
+}
+
+/* ─── ACTION BUTTON ROW ─── */
+.button-row {
+  grid-column: 1 / -1;
+  /* Sinasakop ang buong hilera anuman ang bilang ng columns */
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.upda {
+  width: 100%;
+  /* Buong lapad sa mobile view */
+  background: #1a2a44;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.1s;
+}
+
+.upda:hover {
+  background: #111c2e;
+}
+
+.upda:active {
+  transform: scale(0.98);
+}
+
+/* ─── 📱 MOBILE-FIRST RESPONSIVE MEDIA QUERIES ─── */
+
+/* Desktop Screens Layout (992px pataas) */
+@media (min-width: 992px) {
+  .sidebar {
+    left: 0;
+    /* Palaging permanenteng nakabukas ang sidebar sa desktop */
+  }
+
+  .main {
+    padding-left: 260px;
+    /* Iuurong ang anyo ng form para hindi matakpan */
+  }
+
+  .navbar .toggle {
+    display: none;
+    /* Itinatago ang hamburger menu bar kapag malaki ang screen */
+  }
+
+  .content {
+    padding: 30px;
+  }
+
+  .add-form {
+    padding: 35px;
+  }
+
+  /* Ginagawang 2 columns ang porma para malinis tignan */
+  .add-form form {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Pinapantay ang image selectors sa sarili nilang horizontal row setup */
+  .file-input {
+    grid-column: span 1;
+  }
+
+  .upda {
+    width: auto;
+    /* Sakto lang sa haba ng teksto ang button sa desktop screen */
+    min-width: 150px;
+  }
+}
+
+/* Tablet Screens Layout (768px hanggang 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .add-form form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .content {
+    padding: 20px;
+  }
+}
+/* ─── HIDDEN SALARY FIELDS ─── */
+.salary {
+  display: none !important;
+}

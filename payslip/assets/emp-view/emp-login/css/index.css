@@ -1,0 +1,143 @@
+/* =========================
+   📱 PHONES (Portrait)
+========================= */
+@media (max-width: 767px) {
+  .sidebar {
+    position: fixed;
+    left: -260px;
+    width: 240px;
+    height: 100%;
+    z-index: 1000;
+    transition: 0.3s;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .resume-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+
+  .left-panel img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  .payslip-table {
+    font-size: 12px;
+    overflow-x: auto;
+    display: block;
+  }
+
+  .payslip-table table {
+    min-width: 600px;
+  }
+
+  .qr-btn {
+    width: 100%;
+  }
+}
+
+/* =========================
+   📲 TABLETS (Portrait)
+========================= */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .main {
+    margin-left: 220px;
+  }
+
+  .resume-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+
+  .left-panel img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .payslip-table {
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   📱 PHONES (Landscape)
+========================= */
+@media (max-width: 767px) and (orientation: landscape) {
+  .resume-container {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .left-panel {
+    width: 35%;
+  }
+
+  .right-panel {
+    width: 65%;
+  }
+
+  .left-panel img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .navbar h3 {
+    font-size: 14px;
+  }
+
+  .user {
+    font-size: 12px;
+  }
+}
+
+/* =========================
+   📲 TABLETS (Landscape)
+========================= */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .resume-container {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .left-panel {
+    width: 40%;
+  }
+
+  .right-panel {
+    width: 60%;
+  }
+
+  .left-panel img {
+    width: 130px;
+    height: 130px;
+  }
+}

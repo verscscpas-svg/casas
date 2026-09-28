@@ -1,0 +1,789 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.resume-container {
+  max-width: 900px;
+  margin: auto;
+  /* From https://css.glass */
+  background: rgba(247, 250, 255, 0.33);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(19.2px);
+  -webkit-backdrop-filter: blur(19.2px);
+  border: 1px solid rgba(247, 250, 255, 1);
+  display: flex;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.left-panel {
+  width: 30%;
+  /* From https://css.glass */
+  background: rgba(25, 45, 65, 0.726);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.8px);
+  -webkit-backdrop-filter: blur(11.8px);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.left-panel img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  margin-bottom: 15px;
+}
+
+.left-panel h2 {
+  margin: 10px 0 5px;
+}
+
+.left-panel p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.right-panel {
+  width: 70%;
+  padding: 25px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h3 {
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.info div {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.836);
+}
+
+.label {
+  font-weight: bold;
+  color: #555;
+}
+
+.button-row {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.button-row button {
+  padding: 8px 15px;
+  border: none;
+  background: #3498db;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-row button:hover {
+  background: #2980b9;
+}
+h2,
+p,
+.info {
+  text-transform: uppercase;
+}
+
+.payslip-section {
+  margin-top: 30px;
+}
+
+.payslip-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+  background-color: #f4faff;
+}
+
+.payslip-table th,
+.payslip-table td {
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.payslip-table thead {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.payslip-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.payslip-table tbody tr:hover {
+  background-color: #eaf0fb;
+}
+
+.view-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background-color: #2980b9;
+}
+
+.action-btns {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+/* <!-- CSS for logout button + modal animation -- > */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% - 2rem);
+  margin: auto 1rem 1.25rem;
+  padding: 11px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e05252;
+  background: #fff3f3;
+  border: 1px solid #f5c0c0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.logout-btn:hover {
+  background: #ffe5e5;
+  border-color: #e05252;
+}
+.user {
+  text-transform: capitalize;
+}
+#logoutOverlay.show {
+  display: flex !important;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* QR Code Modal */
+.qr-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-modal-overlay.active {
+  display: flex;
+}
+
+.qr-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: qrFadeIn 0.25s ease;
+  position: relative;
+  height: 500px;
+}
+
+@keyframes qrFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.qr-modal h4 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: #1a1a2e;
+}
+
+.qr-modal p {
+  margin: 0 0 20px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.qr-modal img {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+.qr-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #aaa;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.user {
+  text-transform: capitalize;
+}
+
+.qr-modal-close:hover {
+  color: #333;
+}
+
+.qr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.1s;
+}
+
+.qr-btn:hover {
+  background: #1558b0;
+  transform: translateY(-1px);
+}
+
+.qr-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+/* for modalllllllllllllll view proof of payment  */
+/* ============================================================
+   PROOF OF PAYMENT — External Stylesheet
+   Usage: <link rel="stylesheet" href="proof-of-payment.css">
+   ============================================================ */
+
+/* ─── ACTION BUTTONS (inside table) ─────────────────────────── */
+
+.action-btns {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.action-btns button,
+.action-btns a button {
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.action-btns button:active {
+  transform: scale(0.97);
+}
+
+/* View Payslip */
+.view-btn {
+  background-color: #3b82f6;
+  color: #fff;
+}
+.view-btn:hover {
+  background-color: #2563eb;
+}
+
+/* View Proof */
+.proof-view-btn {
+  background-color: #10b981;
+  color: #fff;
+}
+.proof-view-btn:hover {
+  background-color: #059669;
+}
+
+/* Upload Proof */
+.proof-upload-btn {
+  background-color: #f59e0b;
+  color: #fff;
+}
+.proof-upload-btn:hover {
+  background-color: #d97706;
+}
+
+/* Delete Payslip */
+.delete-btn {
+  background-color: #ef4444;
+  color: #fff;
+}
+.delete-btn:hover {
+  background-color: #dc2626;
+}
+
+/* ─── MODAL OVERLAY ──────────────────────────────────────────── */
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+/* ─── MODAL BOX ──────────────────────────────────────────────── */
+
+.modal-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px 28px 24px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  animation: modalFadeIn 0.2s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-box h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 14px 0;
+}
+
+/* ─── VIEW PROOF MODAL ───────────────────────────────────────── */
+
+#viewProofModal .modal-box {
+  max-width: 1620px;
+}
+
+#viewProofImage {
+  width: 100%;
+  max-height: 700px;
+  object-fit: contain;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  gap: 10px;
+}
+
+/* ─── UPLOAD PROOF MODAL ─────────────────────────────────────── */
+
+#uploadProofModal .modal-box {
+  max-width: 480px;
+}
+
+.upload-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+#proofFileInput {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #374151;
+  background: #f9fafb;
+  transition: border-color 0.2s;
+}
+
+#proofFileInput:hover,
+#proofFileInput:focus {
+  border-color: #6b7280;
+  outline: none;
+}
+
+#uploadPreviewContainer {
+  display: none;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+#uploadPreviewImage {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.modal-footer-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* ─── DELETE PROOF CONFIRMATION MODAL ────────────────────────── */
+
+#deleteProofModal {
+  z-index: 10000;
+}
+
+#deleteProofModal .modal-box {
+  max-width: 420px;
+  text-align: center;
+}
+
+.delete-modal-icon {
+  font-size: 44px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+#deleteProofModal h3 {
+  color: #dc2626;
+  margin-bottom: 6px;
+}
+
+.delete-modal-sublabel {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.delete-modal-warning {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+
+.delete-modal-warning strong {
+  color: #6b7280;
+}
+
+.modal-footer-center {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ─── SHARED MODAL BUTTONS ───────────────────────────────────── */
+
+.btn {
+  padding: 9px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-gray {
+  background-color: #6b7280;
+  color: #ffffff;
+}
+.btn-gray:hover {
+  background-color: #4b5563;
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+.btn-danger:hover {
+  background-color: #b91c1c;
+}
+
+.btn-success {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+.btn-success:hover {
+  background-color: #15803d;
+}
+
+/* ─── PAYSLIP TABLE ──────────────────────────────────────────── */
+
+.payslip-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.payslip-table thead tr {
+  background-color: #f3f4f6;
+}
+
+.payslip-table th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #111827;
+}
+
+.payslip-table td {
+  padding: 10px 14px;
+  color: #111827;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+
+.payslip-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.payslip-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 14px;
+}
+
+/* ─── FILE INPUT UPLOAD AREA ─────────────────────────────────── */
+
+.file-upload-wrapper {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.file-upload-area {
+  position: relative;
+  width: 100%;
+  border: 2px dashed #d1d5db;
+  border-radius: 10px;
+  background: #f9fafb;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+  box-sizing: border-box;
+}
+
+.file-upload-area:hover,
+.file-upload-area.dragover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.file-upload-area input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.file-upload-icon {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 10px;
+  background: #e0e7ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-upload-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: #3b82f6;
+  fill: none;
+}
+
+.file-upload-text {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 500;
+  margin: 0 0 4px 0;
+}
+
+.file-upload-text span {
+  color: #3b82f6;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.file-upload-hint {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* ─── CHOSEN FILE INDICATOR ──────────────────────────────────── */
+
+.file-chosen {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.file-chosen.visible {
+  display: flex;
+}
+
+.file-chosen-icon {
+  width: 32px;
+  height: 32px;
+  background: #dcfce7;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.file-chosen-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: #16a34a;
+  fill: none;
+}
+
+.file-chosen-name {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: #15803d;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.file-chosen-size {
+  font-size: 12px;
+  color: #86efac;
+  margin: 0;
+}
+
+.file-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #86efac;
+  font-size: 16px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.file-remove:hover {
+  color: #16a34a;
+}

@@ -1,0 +1,159 @@
+/* ─── TABLET (portrait: 768px and below) ─── */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+    transform: translateX(-100%);
+    position: fixed;
+    height: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .add-form {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .add-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .add-form h3 {
+    grid-column: 1 / -1;
+  }
+
+  .button-row {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+  }
+
+  .file-input {
+    grid-column: span 1;
+  }
+}
+
+/* ─── PHONE (portrait: 480px and below) ─── */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .add-form {
+    padding: 0.75rem;
+    margin: 0.5rem;
+  }
+
+  .add-form form {
+    grid-template-columns: 1fr; /* single column */
+    gap: 0.75rem;
+  }
+
+  .add-form form > div,
+  .add-form form > .salary,
+  .add-form form > .status-group,
+  .add-form form > .file-input,
+  .add-form form > .button-row {
+    grid-column: 1 / -1;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .button-row .upda {
+    width: 100%;
+  }
+
+  .navbar h3 {
+    font-size: 15px;
+  }
+
+  .user {
+    font-size: 12px;
+  }
+
+  #previewImg,
+  #previewBankQr {
+    width: 100px;
+    height: 110px;
+  }
+}
+
+/* ─── LANDSCAPE (phones & small tablets) ─── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .sidebar {
+    width: 200px;
+    overflow-y: auto;
+  }
+
+  .topbar {
+    padding: 0.5rem;
+  }
+
+  .topbar .logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .compname {
+    font-size: 14px;
+  }
+
+  .add-form {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+  }
+
+  .add-form form {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .add-form h3 {
+    grid-column: 1 / -1;
+    margin-bottom: 0.25rem;
+  }
+
+  .content {
+    padding: 0.5rem;
+  }
+
+  .navbar {
+    padding: 0.4rem 1rem;
+  }
+
+  #previewImg,
+  #previewBankQr {
+    width: 80px;
+    height: 90px;
+  }
+}
+
+/* ─── TABLET LANDSCAPE (768px–1024px landscape) ─── */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main {
+    margin-left: 200px;
+  }
+
+  .add-form form {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}

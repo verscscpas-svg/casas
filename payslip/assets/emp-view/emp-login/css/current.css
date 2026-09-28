@@ -1,0 +1,126 @@
+/* =========================
+   📱 TABLET (portrait & landscape)
+   ========================= */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .main {
+    margin-left: 220px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .custom-info {
+    flex-direction: column;
+  }
+
+  .calculation-section {
+    flex-direction: column;
+  }
+
+  .column-table {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .navbar h3 {
+    font-size: 18px;
+  }
+
+  .user {
+    font-size: 14px;
+  }
+
+  .COMP {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+/* =========================
+   📱 PHONE (portrait)
+   ========================= */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    width: 220px;
+    transition: 0.3s;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar button {
+    font-size: 20px;
+  }
+
+  .payslip-container {
+    padding: 15px;
+  }
+
+  .COMP {
+    font-size: 18px;
+  }
+
+  .info-group {
+    font-size: 13px;
+  }
+
+  .totals-section {
+    font-size: 14px;
+  }
+
+  .btn-function {
+    text-align: center;
+  }
+
+  .print {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* =========================
+   📱 PHONE (landscape)
+   ========================= */
+@media (max-width: 768px) and (orientation: landscape) {
+  .payslip-container {
+    padding: 10px;
+  }
+
+  .COMP {
+    font-size: 16px;
+  }
+
+  .info-group {
+    font-size: 12px;
+  }
+
+  .column-table th,
+  .column-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .totals-section {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,312 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.add-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: auto;
+}
+
+.add-form h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.add-form form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ginawa nating 4 columns */
+  gap: 20px 30px;
+}
+
+.add-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.add-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.add-form input:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Make certain fields span 2 or 3 columns if needed */
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.add-form button {
+  height: 40px;
+  width: 70px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+/* .add-form button[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+} */
+
+.add-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.add-form button[type="button"] {
+  background-color: #f44336;
+  color: #fff;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.add-form button[type="button"]:hover {
+  background-color: #d32f2f;
+}
+
+.button-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .add-form form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .add-form form {
+    grid-template-columns: 1fr;
+  }
+  .button-row button[type="button"] {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+.add-form input::placeholder {
+  font-size: 10px;
+  font-style: italic;
+  opacity: 0.8;
+}
+.span-2 {
+  grid-column: span 2;
+}
+
+/* this is for modal  */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 320px;
+
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+.icon {
+  font-size: 40px;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 10px 0;
+}
+
+p {
+  color: #555;
+  font-size: 14px;
+}
+
+.button-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+/* Buttons */
+.btn.add {
+  background: #007bff;
+  color: white;
+}
+
+.btn.add:hover {
+  background: #0056b3;
+}
+
+.btn.done {
+  background: #28a745;
+  color: white;
+}
+
+.btn.done:hover {
+  background: #1e7e34;
+}
+
+/* file css  */
+/* Hide default input */
+.file-input input[type="file"] {
+  display: none;
+}
+
+/* Button */
+.file-label {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.file-label:hover {
+  background: #2980b9;
+}
+
+/* Preview container */
+
+/* Image style */
+.image-preview img {
+  display: none;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+
+  border: 2px solid #ddd;
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+input {
+  text-transform: capitalize;
+}
+small {
+  display: block;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+}
+select[name="Stats"] {
+  border: 1px solid #ccc;
+
+  border-radius: 4px;
+  outline: none;
+  width: 250px;
+  height: 39px;
+}
+
+/* optional: kapag naka-focus */
+select[name="Stats"]:focus {
+  border-color: #999;
+}
+/* <!-- CSS for logout button + modal animation -- > */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% - 2rem);
+  margin: auto 1rem 1.25rem;
+  padding: 11px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e05252;
+  background: #fff3f3;
+  border: 1px solid #f5c0c0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.user {
+  text-transform: capitalize;
+}
+.logout-btn:hover {
+  background: #ffe5e5;
+  border-color: #e05252;
+}
+
+#logoutOverlay.show {
+  display: flex !important;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
