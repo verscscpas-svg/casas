@@ -1,2 +1,1 @@
-git config --global user.email "vers.cscpas@gmail.com"
-  git config --global user.name "vers"
+git add . && git commit -m "Update website" && git push
