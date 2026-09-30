@@ -61,7 +61,13 @@ $basic_pay_display = $salary / 2;
 // 🔹 Compute OT & holiday pays
 $regular_holiday_hours = floatval($data['regular_holiday'] ?? 0);
 $hourly_rate     = $daily_rate / 8;
-$holiday_pay = ($daily_rate / 8)  * $regular_holiday_hours;
+// $holiday_pay = ($daily_rate / 8)  * $regular_holiday_hours;
+
+
+$holiday_pay = ($daily_rate / 8) * 2 * $regular_holiday_hours;
+
+
+
 // $overtime_pay    = $overtime_hours * $hourly_rate * 1.25;
 // Current overtime pay
 $current_overtime_pay = $overtime_hours * $hourly_rate * 1.25;
@@ -348,7 +354,9 @@ $_SESSION['payslip_data']['net']            = $net;
                             </tr>
                             <tr>
                                 <td class="up">SSS Loan</td>
-                                <td class="text-right"><?= number_format($SSSLoan, 2) ?></td>
+                                <td class="text-right">
+                                    <?= number_format((float)$data['sssloan'], 2) ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="up">Pag-ibig</td>

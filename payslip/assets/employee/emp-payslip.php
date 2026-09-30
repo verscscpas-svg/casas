@@ -364,17 +364,17 @@ $SSSLoan = floatval($data['sssloan'] ?? 0); // ← same
                             </div>
 
                             <div>SSS
-                                <input type="number" id="sss_display" value="<?= $employee_sss ?>" disabled>
+                                <input type="number" step="0.01" id="sss_display" value="<?= $employee_sss ?>" disabled>
                                 <input type="hidden" name="sss" id="sss_hidden" value="<?= $employee_sss ?>">
                             </div>
 
                             <div>Pag-ibig
-                                <input type="number" id="pagibig_display" value="100" disabled>
+                                <input type="number" step="0.01" id="pagibig_display" value="100" disabled>
                                 <input type="hidden" name="pagibig" id="pagibig_hidden" value="100">
                             </div>
 
                             <div>Philhealth
-                                <input type="number" id="philhealth_display" value="<?= $employee_philhealth ?>" disabled>
+                                <input type="number" step="0.01" id="philhealth_display" value="<?= $employee_philhealth ?>" disabled>
                                 <input type="hidden" name="philhealth" id="philhealth_hidden" value="<?= $employee_philhealth ?>">
                             </div>
 
@@ -384,7 +384,7 @@ $SSSLoan = floatval($data['sssloan'] ?? 0); // ← same
                         <!-- RIGHT -->
                         <div class=" right">
                             <div>Employee Loan
-                                <input type="number" name="late" id="EMPLoan_display" value="0.00" disabled>
+                                <input type="number" name="late" step="0.01" id="EMPLoan_display" value="0.00" disabled>
                                 <input type="hidden" name="sssloan" id="EMPLoan_hidden">
                             </div>
 

@@ -1,11 +1,3 @@
-/* ============================================================
-   fqs.css — Casas San Luis & Co. | Contact / FAQ Page
-   Palette: Steel Navy #294169 system
-   Responsive: mobile (≤575px), tablet portrait (576–767px),
-               tablet landscape (768–1023px), desktop (≥1024px)
-   ============================================================ */
-
-/* ── CSS Custom Properties ──────────────────────────────────── */
 :root {
   --navy: #294169;
   /* primary brand */

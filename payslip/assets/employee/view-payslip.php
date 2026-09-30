@@ -265,40 +265,65 @@ $total_ot_hrs = $extra_ot_hrs + $overtime_hours;
                             </tr>
                         </thead>
 
+
                         <tbody>
                             <tr>
                                 <td>Basic Pay</td>
                                 <td class="text-right"><?= number_format($data['basic_pay'], 2) ?></td>
                             </tr>
+
                             <tr>
-                                <td class="reghol">Regular Holiday(<?= number_format($data['reg_holiday']) ?>Hr/s) </td>
+                                <td class="reghol">
+                                    Regular Holiday(<span class="hours"><?= $data['reg_holiday'] ?></span>Hr/s)
+                                </td>
                                 <td class="text-right"><?= number_format($data['regular_holiday'], 2) ?></td>
                             </tr>
+
                             <tr>
-                                <td>Overtime(<?= number_format($data['ot']) ?>Hr/s)</td>
+                                <td>
+                                    Overtime(<span class="hours"><?= $data['ot'] ?></span>Hr/s)
+                                </td>
                                 <td class="text-right"><?= number_format($data['overtime_pay'], 2) ?></td>
                             </tr>
+
                             <tr>
-                                <td>Rest Day Overtime(<?= number_format($data['rd_ot']) ?>Hr/s)</td>
+                                <td>
+                                    Rest Day Overtime(<span class="hours"><?= $data['rd_ot'] ?></span>Hr/s)
+                                </td>
                                 <td class="text-right"><?= number_format($data['restday_ot'], 2) ?></td>
                             </tr>
+
                             <tr>
-                                <td>Special Overtime(<?= number_format($data['spec_ot']) ?>Hr/s)</td>
+                                <td>
+                                    Special Overtime(<span class="hours"><?= $data['spec_ot'] ?></span>Hr/s)
+                                </td>
                                 <td class="text-right"><?= number_format($data['special_ot'], 2) ?></td>
                             </tr>
+
                             <tr>
                                 <td>Allowance</td>
                                 <td class="text-right"><?= number_format($data['allowance'], 2) ?></td>
                             </tr>
+
                             <tr>
                                 <td>Adjustment</td>
                                 <td class="text-right"><?= number_format($data['adjustment'], 2) ?></td>
                             </tr>
+
                             <tr>
                                 <td>13th Month</td>
                                 <td class="text-right"><?= number_format($data['thirteenth_month'], 2) ?></td>
                             </tr>
                         </tbody>
+                        <script>
+                            document.querySelectorAll('.hours').forEach(function(element) {
+                                let value = parseFloat(element.textContent);
+
+                                if (!isNaN(value)) {
+                                    element.textContent = value;
+                                }
+                            });
+                        </script>
 
                     </table>
 

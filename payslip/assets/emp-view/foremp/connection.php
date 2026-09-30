@@ -2,10 +2,11 @@
 // config.php (modern PHP)
 
 // Database configuration
+// Database configuration
 $host = "localhost";
-$user = "u277653476_casaspayslip";
-$pass = "@Casassanluisco2023";
-$db   = "u277653476_casas_payslip";
+$user = "root";
+$pass = "";
+$db   = "payroll_cs";
 
 // Create connection using mysqli
 $conn = new mysqli($host, $user, $pass, $db);
